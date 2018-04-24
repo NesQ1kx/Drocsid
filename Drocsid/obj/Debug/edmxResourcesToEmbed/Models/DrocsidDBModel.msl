@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DrocsidModelContainer" CdmEntityContainer="DrocsidEntities">
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="DrocsidModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="topic_id" ColumnName="topic_id" />
+          <ScalarProperty Name="pubdate" ColumnName="pubdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="DrocsidModel.Section">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="section_name" ColumnName="section_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="DrocsidModel.Topic">
+        <MappingFragment StoreEntitySet="Topics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="topic_name" ColumnName="topic_name" />
+          <ScalarProperty Name="section_id" ColumnName="section_id" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="pubdate" ColumnName="pubdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DrocsidModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

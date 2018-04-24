@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Drocsid.Models.User>
+@{
+    
+    Layout = "/Views/MasterView.cshtml";
+}
+
+<h3>Index</h3>
+<ul>
+   @Html.Action("ShowUser", "Home")
+</ul>
