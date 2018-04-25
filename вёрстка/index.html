@@ -3,8 +3,10 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/styles.css">
   <title>Drocsid</title>
+  <script src="scripts/jquery.js" charset="utf-8"></script>
 </head>
 <header>
+  <div class="logo">Какая-то картинка</div>
   <nav id="menu1">
     <ul class="topmenu">
       <li><a href="" class="left">Комнаты</a>
@@ -21,6 +23,60 @@
   </nav>
 </header>
 <body>
-
+<div class="content">
+  <div class="streams">
+    <h2>Стримы</h2>
+        <ul class="games_menu">
+          <li><a href="#game1" class="active">Dota2</a></li>
+          <li><a href="#game2">CS:GO</a></li>
+          <li><a href="#game3">WoT</a></li>
+          <li><a href="#game4">StarCraft2</a></li>
+        </ul>
+        <div class="game" id="game1">
+          <div class="streamer">
+            <img src="images/1.jpg" alt="">
+            <a href="https://www.twitch.tv/alohadancetv" class="block" target="_blank">ALOHADANCE</a>
+          </div>
+          <div class="streamer">
+            <img src="images/2.jpg" alt="">
+            <a href="https://www.twitch.tv/versuta" class="block" target="_blank">VerSuta</a>
+          </div>
+          <div class="streamer">
+            <img src="images/3.jpg" alt="">
+            <a href="https://www.twitch.tv/dreadztv" class="block" target="_blank">Dread</a>
+          </div>
+        </div>
+        <div class="game" id="game2">
+          <div class="streamer">
+            <img src="images/4.jpg" alt="">
+            <a href="https://www.twitch.tv/ceh9" class="block" target="_blank">Ceh9</a>
+          </div>
+        </div>
+        <div class="game" id="game3">
+          <div class="streamer">
+            <img src="images/5.jpg" alt="">
+            <a href="https://www.twitch.tv/aktep" class="block" target="_blank">AkTep</a>
+          </div>
+        </div>
+        <div class="game" id="game4">
+          <div class="streamer">
+            <img src="images/6.jpg" alt="">
+            <a href="https://www.twitch.tv/byunprime" class="block" target="_blank">Byun</a>
+          </div>
+        </div>
+  </div>
+</div>
 </body>
+<script>
+  $(document).ready(function() {
+    $('.games_menu a').click(function(e) {
+      e.preventDefault();
+      $('.games_menu .active').removeClass('active');
+      $(this).addClass('active');
+      var tab = $(this).attr('href');
+      $('.game').not(tab).css({'display': 'none'})
+      $(tab).fadeIn(400);
+    });
+  });
+</script>
 </html>
