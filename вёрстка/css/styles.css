@@ -68,10 +68,7 @@ body {
     background:#333;
 }
 #menu1 ul li:hover ul{display:block;}
-    #menu1 ul li ul li{
-        float:none;
-        width:100%;
-    }
+
         #menu1 ul li ul li a{
             display:block;
             text-transform:none;
@@ -133,9 +130,6 @@ body {
   background: #5f84c1;
 }
 
-.game {
-
-}
 
 .streamer {
   margin: 20px;
@@ -167,4 +161,43 @@ body {
 
 .game img {
   border-radius: 5px;
+}
+
+/*Регистрация*/
+
+
+.reg {
+  padding: 10px 50px;
+  font-family: arial;
+  font-weight: bold;
+  color: #fff;
+}
+.reg p {
+  padding-bottom: 20px;
+}
+
+#go_reg {
+  background: #fff;
+  border:none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-weight: 1000;
+  color: #fff;
+  background: #5f84c1;
+  font-size: 15;
+  margin-left: 35px;
+}
+
+
+#go_reg:hover {
+  background: #000;
+}
+
+.reg input {
+  width: 200px;
+  height: 25px;
+}
+.reg label {
+  display: inline-block;
+  width: 9%;
 }
