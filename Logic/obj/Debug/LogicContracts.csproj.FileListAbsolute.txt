@@ -1,0 +1,8 @@
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\bin\Debug\Logic.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\bin\Debug\Logic.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\bin\Debug\Entities.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\bin\Debug\Entities.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\LogicContracts.csprojResolveAssemblyReference.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\LogicContracts.csproj.CoreCompileInputs.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\Logic.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\Logic.pdb

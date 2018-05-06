@@ -1,0 +1,12 @@
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\LogicCore.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\LogicCore.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\Entities.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\Logic.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\Entities.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\Logic.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\obj\Debug\LogicCore.csprojResolveAssemblyReference.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\obj\Debug\LogicCore.csproj.CoreCompileInputs.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\obj\Debug\LogicCore.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\obj\Debug\LogicCore.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\DalContracts.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\DalContracts.pdb

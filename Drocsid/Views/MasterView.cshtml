@@ -3,8 +3,36 @@
     ViewBag.Title = "MasterView";
 }
 
-<h2>Header</h2>
-@RenderBody()
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/css/styles.css">
+    <title>Drocsid</title>
+    <script src="~/Content/scripts/jquery.js" charset="utf-8"></script>
+</head>
+<header>
+    <div class="logo">Какая-то картинка</div>
+    <nav id="menu1">
+        <ul class="topmenu">
+            <li>
+                <a href="" class="left">Комнаты</a>
+                <ul class="submenu">
+                    <li><a href="">Радио-бот</a></li>
+                    <li><a href="">Видео-бот</a></li>
+                    <li><a href="">Плейлисты</a></li>
+                </ul>
+            </li>
+            <li><a href="@Url.Action("Index", "Home")" class="left">Главная</a>
+            <li><a href="" class="left">Форум</a></li>
+            <li><a href="@Url.Action("Login", "User")" class="right">Вход</a></li>
+            <li><a href="@Url.Action("Signup", "User")" class="right">Регистрация</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    @RenderBody()
+</body>
+
 <h2>Footer</h2>
 
 

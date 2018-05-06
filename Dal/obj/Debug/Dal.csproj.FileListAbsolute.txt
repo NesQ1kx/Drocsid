@@ -1,0 +1,15 @@
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\Dal.dll.config
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\Dal.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\Dal.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\DalContracts.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\Entities.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\EntityFramework.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\DalContracts.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\Entities.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\EntityFramework.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.pdb
