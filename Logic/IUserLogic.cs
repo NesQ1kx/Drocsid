@@ -9,7 +9,6 @@ namespace Logic
 {
     public interface IUserLogic
     {
-        
         void AddUser(User user);
     }
 }
