@@ -9,6 +9,8 @@ namespace Logic
 {
     public interface IUserLogic
     {
-        void AddUser(User user);
+        void AddUser(string username, string password, string email);
+        bool CheckUserReg(string username);
+        bool CheckUserLogin(string username, string password);
     }
 }

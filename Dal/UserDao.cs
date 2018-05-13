@@ -19,5 +19,16 @@ namespace Dal
                 db.SaveChanges();
             }
         }
+
+       public List<User> GetUsers()
+        {
+            List<User> users = new List<User>();
+            using (var db = new SampleContext())
+            {
+                users = db.Users.ToList();
+            }
+
+            return users;
+        }
     }
 }

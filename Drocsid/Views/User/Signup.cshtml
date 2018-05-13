@@ -1,4 +1,4 @@
-﻿
+﻿@model Drocsid.Models.SignupModel
 @{
     ViewBag.Title = "Signup";
     Layout = "/Views/MasterView.cshtml";
@@ -7,29 +7,38 @@
 <div class="content">
     <h2>Регистрация</h2>
     <div class="register">
-        <form class="reg" action="" method="post" enctype="multipart/form-data">
-            <p>
-                <label for="email">Почта</label>
-                <input type="email" name="email" value="" id="email">
-            </p>
-            <p>
-                <label for="login">Логин</label>
-                <input type="text" name="login" value="" id="login">
-            </p>
-            <p>
-                <label for="pass1">Пароль</label>
-                <input type="password" name="login" value="" id="pass1">
-            </p>
-            <p>
-                <label for="pass2">Повтор пароля</label>
-                <input type="password" name="login" value="" id="pass2">
-            </p>
-            <p>
-                <label for="avatar">Выберите аватар</label>
-                <input type="file" name="avatar" value="" id="avatar" multiple accept="image/png,image/jpeg">
-            </p>
-            <p><input id="go_reg" type="submit" name="" value="Зарегистрироваться"></p>
-        </form>
+
+        @using (Html.BeginForm("Signup", "User", FormMethod.Post, new { @class = "reg" }))
+     {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <p>
+            <label for="email">Почта</label>
+            @Html.TextBoxFor(Model => Model.Email)
+            @Html.ValidationMessageFor(Model => Model.Email)
+        </p>
+        <p>
+            <label for="login">Логин</label>
+            @Html.TextBoxFor(Model => Model.Username)
+            @Html.ValidationMessageFor(Model => Model.Username)
+        </p>
+        <p>
+            <label for="pass1">Пароль</label>
+            @Html.PasswordFor(Model => Model.Password)
+            @Html.ValidationMessageFor(Model => Model.Password)
+        </p>
+        <p>
+            <label for="pass2">Повтор пароля</label>
+            @Html.PasswordFor(Model => Model.ConfrimPassword)
+            @Html.ValidationMessageFor(Model => Model.ConfrimPassword)
+        </p>
+        <p>
+            <label for="avatar">Выберите аватар</label>
+            <input type="file" name="avatar" value="" id="avatar" multiple accept="image/png,image/jpeg">
+        </p>
+        <p><input id="go_reg" type="submit" name="" value="Зарегистрироваться"></p>
+}
+
     </div>
 </div>
 

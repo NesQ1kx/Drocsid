@@ -16,9 +16,37 @@ namespace LogicCore
         {
             _userDao = userDao;
         }
-        public void AddUser(User user)
+        public void AddUser(string username, string password, string email)
         {
+            User user = new User()
+            {
+                Username = username,
+                Password = password,
+                Email = email
+            };
+
             _userDao.Add(user);
+
+        }
+
+        public bool CheckUserLogin(string username, string password)
+        {
+            var users = _userDao.GetUsers();
+            foreach(var u in users)
+            {
+                if (username == u.Username && password == u.Password) return true;
+            }
+            return false;
+        }
+
+        public bool CheckUserReg(string username)
+        {
+            var users = _userDao.GetUsers();
+            foreach(var u in users)
+            {
+                if (username == u.Username) return true;
+            }
+            return false;
         }
     }
 }

@@ -10,5 +10,7 @@ namespace DalContracts
     public interface IUserDao
     {
         void Add(User user);
+        List<User> GetUsers();
     }
+
 }
