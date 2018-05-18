@@ -11,6 +11,7 @@ namespace DalContracts
     {
         void Add(User user);
         List<User> GetUsers();
+        bool UserExist(string username, string password);
     }
 
 }

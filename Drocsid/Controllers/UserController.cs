@@ -12,7 +12,6 @@ namespace Drocsid.Controllers
 {
     public class UserController : Controller
     {
-        // GET: User
 
         private readonly IUserLogic _logic;
 
@@ -24,6 +23,7 @@ namespace Drocsid.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Signup(SignupModel model)
@@ -55,7 +55,7 @@ namespace Drocsid.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_logic.CheckUserLogin(model.Username, model.Password))
+                if (_logic.CheckUser(model.Username, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.Username, false);
                     return RedirectToAction("Index", "Home");

@@ -11,6 +11,6 @@ namespace Logic
     {
         void AddUser(string username, string password, string email);
         bool CheckUserReg(string username);
-        bool CheckUserLogin(string username, string password);
+        bool CheckUser(string username, string password);
     }
 }

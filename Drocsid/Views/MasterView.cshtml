@@ -24,16 +24,16 @@
             </li>
             <li><a href="@Url.Action("Index", "Home")" class="left">Главная</a>
             <li><a href="" class="left">Форум</a></li>
-            @*@if(User.Identity.IsAuthenticated)
+            @if(User.Identity.IsAuthenticated)
             {
-                <li><a href="@Url.Action("Logiut", "User")" class="right">Выход</a></li>
+                <li><a href="@Url.Action("Logout", "User")" class="right">Выход</a></li>
                 <li><a href="#" class="right">@User.Identity.Name</a></li>
             } else
             {
                 <li><a href="@Url.Action("Login", "User")" class="right">Вход</a></li>
                 <li><a href="@Url.Action("Signup", "User")" class="right">Регистрация</a></li>
-            }*@
-            @Html.Partial("_LoginPartial")
+            }
+            @*@Html.Partial("_LoginPartial")*@
             
         </ul>
     </nav>

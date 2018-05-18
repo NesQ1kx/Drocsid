@@ -29,15 +29,9 @@ namespace LogicCore
 
         }
 
-        public bool CheckUserLogin(string username, string password)
-        {
-            var users = _userDao.GetUsers();
-            foreach(var u in users)
-            {
-                if (username == u.Username && password == u.Password) return true;
-            }
-            return false;
-        }
+            
+        public bool CheckUser(string username, string password) => _userDao.UserExist(username, password);
+        
 
         public bool CheckUserReg(string username)
         {

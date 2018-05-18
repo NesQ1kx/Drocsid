@@ -201,3 +201,73 @@ body {
   display: inline-block;
   width: 9%;
 }
+
+/*ТЕМА*/
+
+.topic {
+  display: inline;
+}
+
+.image img {
+  display: inline;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.topic {
+  margin-bottom: 10px;
+}
+
+.image {
+  background: #252626;
+  padding: 5px;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.topic_content {
+  display: inline-block;
+  position: absolute;
+}
+
+.topic_content a {
+  text-decoration: none;
+  font-weight: 1000;
+  font-family: arial;
+  color: #6a7c99;
+}
+
+/*.topic_content a:active {
+  color: #6a7c99;
+}*/
+
+.topic_content a:hover {
+  color: #fff;
+}
+
+.author {
+  display: inline-block;
+}
+
+.author a {
+  text-decoration: none;
+  font-size: 12px;
+  font-family: arial;
+  color: #7e8f9e;
+}
+
+.author a:hover {
+  color: #fff;
+}
+
+.date {
+  font-size: 12px;
+  font-family: arial;
+  color: #7e8f9e;
+}
+
+.date {
+  display: inline-block;
+}
