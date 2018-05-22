@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="~/Content/css/styles.css">
     <title>Drocsid</title>
     <script src="~/Content/scripts/jquery.js" charset="utf-8"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <header>
     <div class="logo">Какая-то картинка</div>
@@ -17,13 +19,13 @@
             <li>
                 <a href="" class="left">Комнаты</a>
                 <ul class="submenu">
-                    <li><a href="">Радио-бот</a></li>
+                    <li><a href="@Url.Action("RadioBot", "Room")">Радио-бот</a></li>
                     <li><a href="">Видео-бот</a></li>
                     <li><a href="">Плейлисты</a></li>
                 </ul>
             </li>
             <li><a href="@Url.Action("Index", "Home")" class="left">Главная</a>
-            <li><a href="" class="left">Форум</a></li>
+            <li><a href="@Url.Action("Index", "Forum")" class="left">Форум</a></li>
             @if(User.Identity.IsAuthenticated)
             {
                 <li><a href="@Url.Action("Logout", "User")" class="right">Выход</a></li>

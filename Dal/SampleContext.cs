@@ -10,10 +10,10 @@ namespace Dal
 {
     public class SampleContext : DbContext
     {
-        /*public SampleContext() : base (@"Data Source = DEXP\SQLEXPRESS; Initial Catalog = DrocsidDB; Integrated Security = true")
-        {
+        //public SampleContext() : base (@"Data Source = DEXP\SQLEXPRESS; Initial Catalog = DrocsidDB; Integrated Security = true")
+        //{
 
-        }*/
+        //}
         public DbSet<User> Users { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Comment> Comments { get; set; }

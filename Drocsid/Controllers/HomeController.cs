@@ -16,9 +16,5 @@ namespace Drocsid.Controllers
         {
             return View();
         }
-
-        
-
-      
     }
 }

@@ -114,3 +114,16 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\NinjectConfigurator.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\NinjectConfigurator.pdb
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\NinjectConfigurator.dll.config
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\WebActivatorEx.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.Owin.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.Owin.Security.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Newtonsoft.Json.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Owin.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.Owin.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Microsoft.Owin.Security.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Newtonsoft.Json.xml

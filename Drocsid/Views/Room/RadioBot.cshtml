@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "RadioBot";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<div class="content">
+    <h2>Радио бот</h2>
+    <div class="room_content"></div>
+    <div class="chat" id="messages"></div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        /*using (Ajax.BeginForm("Chat", new AjaxOptions() { HttpMethod = "POST", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "messages" }))
+        {*/
+            <div class="chat_form">
+                <input type="text" name="name" value="" id="message"/>
+                <input id="go_reg" type="button" value="Send" />
+            </div>
+
+        @*}*@
+    }
+    else
+    {
+        <div class="chat_form">Для отправки сообщений вы должны быть авторизованы</div>
+    }
+
+
+</div>
+<script type="text/javascript">
+    var socket,
+        $txt = document.getElementById('message'),
+        $user = '@User.Identity.Name',
+        $messages = document.getElementById('messages');
+
+    if (typeof (WebSocket) !== 'undefined') {
+        socket = new WebSocket("ws://localhost/Drocsid/ChatHandler.ashx");
+    } else {
+        socket = new MozWebSocket("ws://localhost/Drocsid/ChatHandler.ashx");
+    }
+
+    socket.onmessage = function (msg) {
+        var $el = document.createElement('p');
+        $el.innerHTML = msg.data;
+        $messages.appendChild($el);
+    };
+
+    socket.onclose = function (event) {
+        alert('Мы потеряли её. Пожалуйста, обновите страницу');
+    };
+
+    document.getElementById('go_reg').onclick = function () {
+        socket.send($user.value + ' : ' + $txt.value);
+        $txt.value = '';
+    };
+</script>
+
