@@ -403,7 +403,7 @@ body {
   font-family: Arial;
   font-size: 13;
   padding: 10px;
-  overflow: scroll;
+  overflow: auto;
 }
 
  .chat p {
