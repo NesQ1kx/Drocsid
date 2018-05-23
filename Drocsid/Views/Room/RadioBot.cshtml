@@ -10,14 +10,10 @@
     <div class="chat" id="messages"></div>
     @if (User.Identity.IsAuthenticated)
     {
-        /*using (Ajax.BeginForm("Chat", new AjaxOptions() { HttpMethod = "POST", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "messages" }))
-        {*/
             <div class="chat_form">
                 <input type="text" name="name" value="" id="message"/>
-                <input id="go_reg" type="button" value="Send" />
+                <input id="go_reg" type="button" value="Отправить" />
             </div>
-
-        @*}*@
     }
     else
     {
@@ -27,9 +23,9 @@
 
 </div>
 <script type="text/javascript">
+    var username = "@User.Identity.Name";
     var socket,
         $txt = document.getElementById('message'),
-        $user = '@User.Identity.Name',
         $messages = document.getElementById('messages');
 
     if (typeof (WebSocket) !== 'undefined') {
@@ -39,18 +35,19 @@
     }
 
     socket.onmessage = function (msg) {
-        var $el = document.createElement('p');
-        $el.innerHTML = msg.data;
-        $messages.appendChild($el);
+        var el = document.createElement('p');
+        el.innerHTML = msg.data;
+        $messages.appendChild(el);
     };
 
     socket.onclose = function (event) {
-        alert('Мы потеряли её. Пожалуйста, обновите страницу');
+        alert('Обрыв соединения. Пожалуйста, обновите страницу');
     };
 
     document.getElementById('go_reg').onclick = function () {
-        socket.send($user.value + ' : ' + $txt.value);
+        socket.send(username + ': ' + $txt.value);
         $txt.value = '';
     };
+    
 </script>
 
