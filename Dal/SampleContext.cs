@@ -10,6 +10,10 @@ namespace Dal
 {
     public class SampleContext : DbContext
     {
+        public SampleContext():base("SampleContext")
+        {
+
+        }
         //public SampleContext() : base (@"Data Source = DEXP\SQLEXPRESS; Initial Catalog = DrocsidDB; Integrated Security = true")
         //{
 

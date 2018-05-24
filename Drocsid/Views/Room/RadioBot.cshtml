@@ -38,6 +38,7 @@
         var el = document.createElement('p');
         el.innerHTML = msg.data;
         $messages.appendChild(el);
+
     };
 
     socket.onclose = function (event) {
@@ -45,19 +46,17 @@
     };
 
     document.getElementById('go_reg').onclick = function () {
-        socket.send(username + ': ' + $txt.value);
-        $txt.value = '';
+        if ($txt.value.length > 0) {
+            socket.send(username + ': ' + $txt.value);
+            $txt.value = '';
+        }
     };
 
-    window.onload = function () {
-        var scrollinDiv = document.getElementById('messages');
-        setInterval(function () {
-            scrollinDiv.scrollTop = 9999;
-        }, 100);
+        window.onload = function () {
+            var scrollinDiv = document.getElementById('messages');
+            setInterval(function () {
+                scrollinDiv.scrollTop = 9999;
+            }, 100);
     }
-
-
-
-    
+   
 </script>
-
