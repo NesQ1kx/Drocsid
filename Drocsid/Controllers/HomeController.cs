@@ -10,11 +10,16 @@ namespace Drocsid.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
-        
+        private readonly ITopicLogic _logic;
+
+        public HomeController(ITopicLogic logic)
+        {
+            _logic = logic;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return View(_logic.GetForIndex());
         }
     }
 }

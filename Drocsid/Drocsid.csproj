@@ -188,6 +188,7 @@
     <Content Include="Views\Forum\Index.cshtml" />
     <Content Include="Views\Forum\Section.cshtml" />
     <Content Include="Views\Forum\Topic.cshtml" />
+    <Content Include="Views\Forum\_CommentPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

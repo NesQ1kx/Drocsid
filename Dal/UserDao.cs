@@ -19,8 +19,8 @@ namespace Dal
                 db.SaveChanges();
             }
         }
-
-       public List<User> GetUsers()
+        
+        public List<User> GetUsers()
         {
             using (var db = new SampleContext())
             {

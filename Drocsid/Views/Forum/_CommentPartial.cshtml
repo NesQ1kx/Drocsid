@@ -1,0 +1,21 @@
+﻿@foreach(var c in Model)
+{
+<div class="topic">
+    <div class="user">
+        <h4><a href="">@c.Author</a></h4>
+            <img src="~/Content/images/1.jpg" alt="">
+            <div class="userinfo">
+                <p class="name">Регистрация:</p>
+                <p class="data">20.01.2016</p>
+                <p class="name">На форуме:</p>
+                <p class="data">1д 21ч 10м</p>
+                <p class="name">Сообщений:</p>
+                <p class="data">253</p>
+            </div>
+    </div>
+    <div class="text">
+        @c.Text
+    </div>
+</div>
+}
+

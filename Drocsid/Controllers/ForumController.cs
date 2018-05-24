@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,12 @@ namespace Drocsid.Controllers
 {
     public class ForumController : Controller
     {
-        // GET: Forum
+        private readonly ITopicLogic _logic;
+
+        public ForumController(ITopicLogic logic)
+        {
+            _logic = logic;
+        }
         public ActionResult Index()
         {
             return View();
@@ -19,9 +25,14 @@ namespace Drocsid.Controllers
             return View();
         }
 
-        public ActionResult Topic()
+        public ActionResult Topic(int id)
         {
-            return View();
+            return View(_logic.GetTopic(id));
+        }
+
+        public ActionResult Comment(int id)
+        {
+            return PartialView("_CommentPartial", _logic.GetComments(id));
         }
     }
 }
