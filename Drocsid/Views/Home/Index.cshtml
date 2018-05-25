@@ -52,7 +52,8 @@
     {
     <div class="topic">
         <div class="image">
-            <img src="~/Content/images/1.jpg" alt="">
+            @*<img src="~/Content/images/1.jpg" alt="">*@
+            @Html.GravatarImage("111gosha11@gmail.com", cssClass: "gravatar img-responsive")
             <div class="topic_content">
                 <a href="@Url.Action("Topic", "Forum", new { id = t.Id})">@t.TopicName</a>
             </div>
