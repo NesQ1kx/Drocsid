@@ -35,8 +35,8 @@ namespace NinjectConfigurator
         {
             kernel.Bind<IUserLogic>().To<UserLogic>().InSingletonScope();
             kernel.Bind<IUserDao>().To<UserDao>().InSingletonScope();
-            kernel.Bind<ITopicDao>().To<TopicDao>().InSingletonScope();
-            kernel.Bind<ITopicLogic>().To<TopicLogic>().InSingletonScope();
+            kernel.Bind<IForumDao>().To<ForumDao>().InSingletonScope();
+            kernel.Bind<IForumLogic>().To<ForumLogic>().InSingletonScope();
         }
     }
 }

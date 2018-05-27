@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="SampleContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TopicDao.cs" />
+    <Compile Include="ForumDao.cs" />
     <Compile Include="UserDao.cs" />
   </ItemGroup>
   <ItemGroup>

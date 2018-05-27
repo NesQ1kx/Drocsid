@@ -6,3 +6,4 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Debug\DalContracts.csprojR
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Debug\DalContracts.csproj.CoreCompileInputs.cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Debug\DalContracts.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Debug\DalContracts.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\bin\Debug\Entities.dll.config

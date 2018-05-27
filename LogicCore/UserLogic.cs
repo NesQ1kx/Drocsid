@@ -29,7 +29,6 @@ namespace LogicCore
 
         }
 
-            
         public bool CheckUser(string username, string password) => _userDao.UserExist(username, password);
         
 

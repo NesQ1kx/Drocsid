@@ -382,6 +382,13 @@ body {
   color: #fff;
 }
 
+.stop {
+  margin: 0 auto;
+  text-align: center;
+  font-family: sans-serif;
+  color: #fff;
+}
+
 /*Комната*/
 
 .room_content {
@@ -403,10 +410,11 @@ body {
   font-family: Arial;
   font-size: 13;
   padding: 10px;
-  overflow: auto;
+  overflow: scroll;
 }
 
  .chat p {
+  display: inline-block;
   margin-bottom: -7px;
 }
 
@@ -419,7 +427,7 @@ body {
   top: -16px;
 }
 
-#message {
+#input {
   width: 210px;
 }
 .chat_form input {
@@ -428,4 +436,10 @@ body {
 
 .chat_form #go_reg {
   width: 106px;
+}
+
+/*Добавление темы*/
+
+.addtopic .reg label {
+  width: 13%;
 }

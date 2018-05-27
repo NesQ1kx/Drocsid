@@ -52,7 +52,6 @@
     {
     <div class="topic">
         <div class="image">
-            @*<img src="~/Content/images/1.jpg" alt="">*@
             @Html.GravatarImage("111gosha11@gmail.com", cssClass: "gravatar img-responsive")
             <div class="topic_content">
                 <a href="@Url.Action("Topic", "Forum", new { id = t.Id})">@t.TopicName</a>
@@ -66,63 +65,6 @@
         </div>
     </div>
     }
-    
-    @*<div class="topic">
-        <div class="image">
-            <img src="~/Content/images/1.jpg" alt="">
-            <div class="topic_content">
-                <a href="#">Тема2</a>
-            </div>
-            <div class="author">
-                <a href="#">NesQ1k</a>
-            </div>
-            <div class="date">
-                07.05.2018
-            </div>
-        </div>
-    </div>
-    <div class="topic">
-        <div class="image">
-            <img src="~/Content/images/1.jpg" alt="">
-            <div class="topic_content">
-                <a href="#">Тема3</a>
-            </div>
-            <div class="author">
-                <a href="#">NesQ1k</a>
-            </div>
-            <div class="date">
-                07.05.2018
-            </div>
-        </div>
-    </div>
-    <div class="topic">
-        <div class="image">
-            <img src="~/Content/images/1.jpg" alt="">
-            <div class="topic_content">
-                <a href="#">Тема4</a>
-            </div>
-            <div class="author">
-                <a href="#">NesQ1k</a>
-            </div>
-            <div class="date">
-                07.05.2018
-            </div>
-        </div>
-    </div>
-    <div class="topic">
-        <div class="image">
-            <img src="~/Content/images/1.jpg" alt="">
-            <div class="topic_content">
-                <a href="#">Тема5</a>
-            </div>
-            <div class="author">
-                <a href="#">NesQ1k</a>
-            </div>
-            <div class="date">
-                07.05.2018
-            </div>
-        </div>
-    </div>*@
 </div>
 <script>
     $(document).ready(function () {

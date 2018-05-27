@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Drocsid"
+    "\\Drocsid",
+    "\\Drocsid\\Views",
+    "\\Drocsid\\Views\\Home"
   ],
-  "SelectedNode": "\\Drocsid.sln",
   "PreviewInSolutionExplorer": false
 }

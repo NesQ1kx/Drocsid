@@ -6,3 +6,4 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\LogicContracts.csprojResolv
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\LogicContracts.csproj.CoreCompileInputs.cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\Logic.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\obj\Debug\Logic.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Logic\bin\Debug\Entities.dll.config

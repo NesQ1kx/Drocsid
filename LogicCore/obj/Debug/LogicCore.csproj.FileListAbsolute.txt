@@ -10,3 +10,4 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\obj\Debug\LogicCore.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\obj\Debug\LogicCore.pdb
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\DalContracts.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\DalContracts.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\LogicCore\bin\Debug\Entities.dll.config

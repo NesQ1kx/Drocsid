@@ -13,3 +13,4 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.csprojResolveAssemblyRefe
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\Entities.dll.config

@@ -46,3 +46,4 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\NinjectConfigurator\obj\Debug\NinjectConfig
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\NinjectConfigurator\obj\Debug\NinjectConfigurator.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\NinjectConfigurator\obj\Debug\NinjectConfigurator.pdb
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\NinjectConfigurator\bin\Debug\WebActivatorEx.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\NinjectConfigurator\bin\Debug\Entities.dll.config

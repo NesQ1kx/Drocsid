@@ -7,30 +7,34 @@
     <h2>@Model.TopicName</h2>
     <div class="topic">
         <div class="user">
-            <h4>
-                <a href="">@Model.Author</a></h4>
-                <img src="~/Content/images/1.jpg" alt="">
-                <div class="userinfo">
-                    <p class="name">Регистрация:</p>
-                    <p class="data">20.01.2016</p>
-                    <p class="name">На форуме:</p>
-                    <p class="data">1д 21ч 10м</p>
-                    <p class="name">Сообщений:</p>
-                    <p class="data">253</p>
-                </div>
+            <h4><a href="">@Model.Author</a></h4>
+            @Html.GravatarImage("111gosha11@gmail.com")
+            <div class="userinfo">
+                <p class="name">Регистрация:</p>
+                <p class="data">20.01.2016</p>
+                <p class="name">На форуме:</p>
+                <p class="data">1д 21ч 10м</p>
+                <p class="name">Сообщений:</p>
+                <p class="data">253</p>
+            </div>
         </div>
         <div class="text">
-           @Model.Text
+            @Model.Text
 
         </div>
     </div>
     @Html.Action("Comment", "Forum", new { id = Model.Id })
-    <div class="commentform">
-        <h3>Оставить комментарий</h3>
-        <form class="comment" action="Topic.html" method="post">
-            <p><label for="text">Ваш комментарий</label></p>
-            <textarea name="text" rows="8" cols="80"></textarea>
-            <p><input id="go_reg" type="submit" name="" value="Отправить"></p>
-        </form>
-    </div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Action("AddComment", "Forum", new { id = Model.Id})
+    }
+    else
+    {
+        <div class="stop">
+            <img width="100" height="100" src="~/Content/images/stopcomment.jpg" alt="">
+            <p>Оставлять комментарии могут только зарегистрированные пользователи</p>
+        </div>
+    }
+
 </div>

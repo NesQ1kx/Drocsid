@@ -171,9 +171,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GravatarHtmlHelper_Net40.cs" />
+    <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
+    <Compile Include="Models\TopicModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +198,10 @@
     <Content Include="Views\Forum\Section.cshtml" />
     <Content Include="Views\Forum\Topic.cshtml" />
     <Content Include="Views\Forum\_CommentPartial.cshtml" />
+    <Content Include="Views\Forum\_SectionTopicShortPartial.cshtml" />
+    <Content Include="Views\Forum\_AllTopicsPartial.cshtml" />
+    <Content Include="Views\Forum\_AddCommentPartial.cshtml" />
+    <Content Include="Views\Forum\AddTopic.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

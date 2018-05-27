@@ -28,8 +28,7 @@ namespace Drocsid.Models
         [Display(Name = "Повтор пароля")]
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfrimPassword { get; set; }
-       /* [Required]
-        public string Avatar { get; set; }*/
+        
 
     }
 }

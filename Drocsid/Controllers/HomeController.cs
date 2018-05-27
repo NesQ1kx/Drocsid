@@ -10,9 +10,9 @@ namespace Drocsid.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ITopicLogic _logic;
+        private readonly IForumLogic _logic;
 
-        public HomeController(ITopicLogic logic)
+        public HomeController(IForumLogic logic)
         {
             _logic = logic;
         }
