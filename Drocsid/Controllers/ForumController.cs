@@ -98,6 +98,7 @@ namespace Drocsid.Controllers
 
         public ActionResult UserInfo(string userName)
         {
+            ViewBag.Time = _logic.GetUserTime(userName);
             return PartialView("_UserInfoPartial", _logic.GetUser(userName));
         }
     }

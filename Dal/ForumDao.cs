@@ -90,5 +90,16 @@ namespace Dal
                 return user = (User) db.Users.Where(u => u.Username == userName).FirstOrDefault();
             }
         }
+
+        public void UpdateMessages(string userName)
+        {
+            User user;
+            using (var db = new SampleContext())
+            {
+                user = db.Users.Where(u => u.Username == userName).FirstOrDefault();
+                user.Messages += 1;
+                db.SaveChanges();
+            }
+        }
     }
 }

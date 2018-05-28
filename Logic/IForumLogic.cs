@@ -18,5 +18,6 @@ namespace Logic
         void AddComment(int topicId, string author, string text);
         void AddTopic(int sectionId, string author, string topicName, string text);
         User GetUser(string userName);
+        string GetUserTime(string userName);
     }
 }

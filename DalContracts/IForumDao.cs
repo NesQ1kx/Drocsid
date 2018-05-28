@@ -18,5 +18,6 @@ namespace DalContracts
         void AddComment(Comment comment);
         void AddTopic(Topic topic);
         User GetUser(string userName);
+        void UpdateMessages(string userName);
     }
 }

@@ -42,6 +42,7 @@ namespace LogicCore
                 Pubdate = DateTime.Now
             };
             _forumDao.AddComment(comment);
+            _forumDao.UpdateMessages(author);
         }
 
        public void AddTopic(int sectionId, string author, string topicName, string text)
@@ -56,12 +57,24 @@ namespace LogicCore
             };
 
             _forumDao.AddTopic(topic);
+            _forumDao.UpdateMessages(author);
         }
 
         public User GetUser(string userName)
         {
             return _forumDao.GetUser(userName);
         }
-        
+
+        public string GetUserTime(string userName)
+        {
+            User user = _forumDao.GetUser(userName);
+            TimeSpan time = (DateTime.Now.Subtract(user.RegDate));
+            string days = time.ToString("%d");
+            string hours = time.ToString("%h");
+            string minutes = time.ToString("%m");
+            string userTime = $"{days}д {hours}ч {minutes}м";
+            return userTime;
+        }
+
     }
 }

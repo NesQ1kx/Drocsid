@@ -4,9 +4,9 @@
     <div class="userinfo">
         <p>@Html.GravatarImage(Model.Email, cssClass:"gravatar img-responsive")</p>
         <p class="name">Регистрация:</p>
-        <p class="data">20.01.2016</p>
+        <p class="data">@Model.RegDate.ToShortDateString()</p>
         <p class="name">На форуме:</p>
-        <p class="data">1д 21ч 10м</p>
+        <p class="data">@ViewBag.Time</p>
         <p class="name">Сообщений:</p>
         <p class="data">@Model.Messages</p>
     </div>

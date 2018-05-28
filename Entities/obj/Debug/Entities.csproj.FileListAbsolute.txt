@@ -8,3 +8,4 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Debug\EntityFramework.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Debug\EntityFramework.xml
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
