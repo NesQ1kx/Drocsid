@@ -348,6 +348,11 @@ body {
   font-size: 13;
 }
 
+.userinfo img {
+  display: block;
+  margin: 0 auto;
+}
+
 .name {
   display: inline-block;
   float: left;

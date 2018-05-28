@@ -95,5 +95,10 @@ namespace Drocsid.Controllers
 
             return View(model);
         }
+
+        public ActionResult UserInfo(string userName)
+        {
+            return PartialView("_UserInfoPartial", _logic.GetUser(userName));
+        }
     }
 }

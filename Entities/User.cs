@@ -13,6 +13,7 @@ namespace Entities
         public string Password { get; set; }
         public string Email { get; set; }
         public bool ConfirmedEmail { get; set; }
+        public int Messages { get; set; }
         public string Role { get; set; }
         public int Status { get; set; }
     }

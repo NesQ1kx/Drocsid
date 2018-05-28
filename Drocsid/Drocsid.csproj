@@ -202,6 +202,7 @@
     <Content Include="Views\Forum\_AllTopicsPartial.cshtml" />
     <Content Include="Views\Forum\_AddCommentPartial.cshtml" />
     <Content Include="Views\Forum\AddTopic.cshtml" />
+    <Content Include="Views\Forum\_UserInfoPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

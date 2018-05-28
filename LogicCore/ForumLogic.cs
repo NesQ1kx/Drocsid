@@ -57,6 +57,11 @@ namespace LogicCore
 
             _forumDao.AddTopic(topic);
         }
+
+        public User GetUser(string userName)
+        {
+            return _forumDao.GetUser(userName);
+        }
         
     }
 }

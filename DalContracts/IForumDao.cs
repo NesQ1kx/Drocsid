@@ -17,5 +17,6 @@ namespace DalContracts
         List<Topic> GetAllTopics(int id);
         void AddComment(Comment comment);
         void AddTopic(Topic topic);
+        User GetUser(string userName);
     }
 }

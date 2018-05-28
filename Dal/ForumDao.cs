@@ -81,5 +81,14 @@ namespace Dal
                 db.SaveChanges();
             }
         }
+
+        public User GetUser(string userName)
+        {
+            User user;
+            using (var db = new SampleContext())
+            {
+                return user = (User) db.Users.Where(u => u.Username == userName).FirstOrDefault();
+            }
+        }
     }
 }

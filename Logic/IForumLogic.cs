@@ -17,5 +17,6 @@ namespace Logic
         List<Topic> GetAllTopics(int id);
         void AddComment(int topicId, string author, string text);
         void AddTopic(int sectionId, string author, string topicName, string text);
+        User GetUser(string userName);
     }
 }
