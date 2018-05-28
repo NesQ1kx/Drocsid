@@ -47,13 +47,16 @@ namespace LogicCore
 
        public void AddTopic(int sectionId, string author, string topicName, string text)
         {
+            User user = _forumDao.GetUser(author);
             Topic topic = new Topic()
             {
                 TopicName = topicName,
                 SectionId = sectionId,
                 Text = text,
                 Author = author,
+                Email = user.Email,
                 Pubdate = DateTime.Now
+                
             };
 
             _forumDao.AddTopic(topic);
