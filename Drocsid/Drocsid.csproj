@@ -203,6 +203,7 @@
     <Content Include="Views\Forum\_AddCommentPartial.cshtml" />
     <Content Include="Views\Forum\AddTopic.cshtml" />
     <Content Include="Views\Forum\_UserInfoPartial.cshtml" />
+    <Content Include="Views\Room\VideoBot.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

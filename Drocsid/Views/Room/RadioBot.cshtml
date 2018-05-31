@@ -6,7 +6,7 @@
 
 <div class="content">
     <h2>Радио бот</h2>
-    <div class="room_content"></div>
+    <div class="room_content" id="player"></div>
     <div class="chat" id="messages"></div>
     @if (User.Identity.IsAuthenticated)
     {
@@ -58,5 +58,5 @@
                 scrollinDiv.scrollTop = 9999;
             }, 100);
     }
-   
+
 </script>

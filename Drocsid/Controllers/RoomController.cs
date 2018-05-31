@@ -15,6 +15,11 @@ namespace Drocsid.Controllers
             return View();
         }
 
+        public ActionResult VideoBot()
+        {
+            return View();
+        }
+
         public ActionResult Chat(string msg)
         {
             MessageModel message = new MessageModel()
