@@ -163,6 +163,7 @@
     <Compile Include="ChatHandler.ashx.cs">
       <DependentUpon>ChatHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ChatHub.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
@@ -171,12 +172,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GravatarHtmlHelper_Net40.cs" />
+    <Compile Include="MessageType.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
     <Compile Include="Models\TopicModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="MyWebSocketHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

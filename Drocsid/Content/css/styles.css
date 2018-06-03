@@ -409,7 +409,7 @@ body {
   background: #625C5C;
   width: 300px;
   height: 320px;
-  display: inline-block;
+  display: none;
   position: absolute;
   color: white;
   font-family: Arial;
@@ -425,7 +425,7 @@ body {
 
 .chat_form {
   position: relative;
-  display: inline-block;
+  display: none;
   width: 320px;
   height: 50px;
   margin-left: 30px;
@@ -441,6 +441,21 @@ body {
 
 .chat_form #go_reg {
   width: 106px;
+}
+
+#enter {
+  background: #fff;
+  border: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-weight: 1000;
+  color: #fff;
+  background: #5f84c1;
+  font-size: 15;
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  right: 27%;
 }
 
 /*Добавление темы*/

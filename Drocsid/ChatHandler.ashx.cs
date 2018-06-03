@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.SignalR.WebSockets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
@@ -12,18 +13,22 @@ namespace Drocsid
     
     public class ChatHandler : IHttpHandler
     {
-        private static readonly List<WebSocket> Clients = new List<WebSocket>();
-        private static readonly ReaderWriterLockSlim Locker = new ReaderWriterLockSlim();
-
+        
         public void ProcessRequest(HttpContext context)
         {
             if (context.IsWebSocketRequest)
                 context.AcceptWebSocketRequest(WebSocketRequest);
         }
 
+        private string _currentVideoId;
+
+        private static readonly List<WebSocket> Clients = new List<WebSocket>();
+        private static readonly ReaderWriterLockSlim Locker = new ReaderWriterLockSlim();
+
         private async Task WebSocketRequest(AspNetWebSocketContext context)
         {
             var socket = context.WebSocket;
+
 
             Locker.EnterWriteLock();
             try
@@ -34,7 +39,7 @@ namespace Drocsid
                 Locker.ExitWriteLock();
             }
 
-            while(true)
+            while (true)
             {
                 var buffer = new ArraySegment<byte>(new byte[1024]);
 

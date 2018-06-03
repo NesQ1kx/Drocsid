@@ -20,7 +20,7 @@ namespace Drocsid.Controllers
             return View();
         }
 
-        public ActionResult Chat(string msg)
+       /* public ActionResult Chat(string msg)
         {
             MessageModel message = new MessageModel()
             {
@@ -29,6 +29,6 @@ namespace Drocsid.Controllers
             };
 
             return PartialView("Message", message);
-        }
+        }*/
     }
 }
