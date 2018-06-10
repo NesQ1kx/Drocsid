@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SampleContext-Web.config Connection String" description="SampleContext Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Data Source=.\SQLEXPRESS; AttachDbFilename=|DataDirectory|DrocsidDB1.mdf;  Initial Catalog=DrocsidDB1; Integrated Security=True;Persist Security Info=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NessQ1k\\Desktop\\GIT\\Drocsid\\Drocsid\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SampleContext']/@connectionString" />
+  </parameter>
+</parameters>

@@ -13,6 +13,7 @@ namespace Entities
         public string Text { get; set; }
         public string Author { get; set; }
         public int TopicId { get; set; }
+        public string TopicName { get; set; }
         public DateTime Pubdate { get; set; }
     }
 }

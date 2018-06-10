@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Entities.Topic>
+@{
+    
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<div class="content">
+    <div class="streams">
+        <h2>Стримы</h2>
+        <ul class="games_menu">
+            <li><a href="#game1" class="active">Dota2</a></li>
+            <li><a href="#game2">CS:GO</a></li>
+            <li><a href="#game3">WoT</a></li>
+            <li><a href="#game4">StarCraft2</a></li>
+        </ul>
+        <div class="game" id="game1">
+            <div class="streamer">
+                <img src="~/Content/images/1.jpg" alt="">
+                <a href="https://www.twitch.tv/alohadancetv/popout" class="block" target="_blank">ALOHADANCE</a>
+            </div>
+            <div class="streamer">
+                <img src="~/Content/images/2.jpg" alt="">
+                <a href="https://www.twitch.tv/versuta/popout" class="block" target="_blank">VerSuta</a>
+            </div>
+            <div class="streamer">
+                <img src="~/Content/images/3.jpg" alt="">
+                <a href="https://www.twitch.tv/dreadztv/popout" class="block" target="_blank">Dread</a>
+            </div>
+        </div>
+        <div class="game" id="game2">
+            <div class="streamer">
+                <img src="~/Content/images/4.jpg" alt="">
+                <a href="https://www.twitch.tv/ceh9/popout" class="block" target="_blank">Ceh9</a>
+            </div>
+        </div>
+        <div class="game" id="game3">
+            <div class="streamer">
+                <img src="~/Content/images/5.jpg" alt="">
+                <a href="https://www.twitch.tv/aktep/popout" class="block" target="_blank">AkTep</a>
+            </div>
+        </div>
+        <div class="game" id="game4">
+            <div class="streamer">
+                <img src="~/Content/images/6.jpg" alt="">
+                <a href="https://www.twitch.tv/byunprime/popout" class="block" target="_blank">Byun</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <h2>Последние темы</h2>
+    @foreach(var t in Model)
+    {
+    <div class="topic">
+        <div class="image">
+            @Html.GravatarImage(t.Email, cssClass: "gravatar img-responsive")
+            <div class="topic_content">
+                <a href="@Url.Action("Topic", "Forum", new { id = t.Id})">@t.TopicName</a>
+            </div>
+            <div class="author">
+                <a href="#">@t.Author</a>
+            </div>
+            <div class="date">
+                @t.Pubdate
+            </div>
+        </div>
+    </div>
+    }
+</div>
+<script>
+    $(document).ready(function () {
+        $('.games_menu a').click(function (e) {
+            e.preventDefault();
+            $('.games_menu .active').removeClass('active');
+            $(this).addClass('active');
+            var tab = $(this).attr('href');
+            $('.game').not(tab).css({ 'display': 'none' })
+            $(tab).fadeIn(400);
+        });
+    });
+</script>

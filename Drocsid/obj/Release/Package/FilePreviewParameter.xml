@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Drocsid" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\NessQ1k\\Desktop\\GIT\\Drocsid\\Drocsid\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\NessQ1k\\Desktop\\GIT\\Drocsid\\Drocsid\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="SampleContext-Web.config Connection String" description="" value="Data Source=.\SQLEXPRESS; AttachDbFilename=|DataDirectory|DrocsidDB1.mdf;  Initial Catalog=DrocsidDB1; Integrated Security=True;Persist Security Info=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NessQ1k\\Desktop\\GIT\\Drocsid\\Drocsid\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SampleContext']/@connectionString" />
+  </parameter>
+</parameters>

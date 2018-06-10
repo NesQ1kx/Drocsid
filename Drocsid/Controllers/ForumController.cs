@@ -15,6 +15,7 @@ namespace Drocsid.Controllers
         private static int _topicId;
         private static int _sectionId;
         private static string _sectionName;
+        private static string _topicName;
 
         public ForumController(IForumLogic logic)
         {
@@ -57,9 +58,10 @@ namespace Drocsid.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddComment(int id)
+        public ActionResult AddComment(int id, string topicName)
         {
             _topicId = id;
+            _topicName = topicName;
             return PartialView("_AddCommentPartial");
         }
 
@@ -69,7 +71,7 @@ namespace Drocsid.Controllers
             
             if(ModelState.IsValid)
             {
-                _logic.AddComment(_topicId, User.Identity.Name, model.Text);
+                _logic.AddComment(_topicId, _topicName, User.Identity.Name, model.Text);
                 return RedirectToAction("Topic", "Forum", new { id = _topicId});
             }
 

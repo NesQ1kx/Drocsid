@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "VideoBot";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "RadioBot";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<div class="content">
+    <h2>Видео бот</h2>
+    <div class="room_content" id="player"></div>
+    <div class="chat" id="messages"></div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <input type="button" id="enter" value="Войти в чат">
+        <div class="chat_form">
+            <input type="text" name="name" value="" id="message" />
+            <input id="go_reg" type="button" value="Отправить" />
+        </div>
+    }
+    else
+    {
+        <div class="chat_form">Для отправки сообщений вы должны быть авторизованы</div>
+    }
+
+
+</div>
+<script type="text/javascript">
+    var username = "@User.Identity.Name";
+    var socket,
+        $txt = document.getElementById('message'),
+        $messages = document.getElementById('messages');
+    var player;
+    var playList = ['OdPutNzVDnQ'];
+    var currentId;
+    var nextId;
+    var skip;
+
+
+    var chat = $.connection.chatHub;
+    
+    chat.client.onConnected = function (message) {
+        var data = JSON.parse(message);
+        $('#messages').html('<p>Добро пожаловать ' + data.Username + '</p>')
+    }
+
+    $('#enter').click(function () {
+        $('.chat').css('display', 'inline-block');
+        $('.chat_form').css('display', 'inline-block');
+        $('#enter').hide();
+        $.connection.hub.start().done(function () {
+            chat.server.connect(username);
+        });
+
+    });
+
+    $('#go_reg').click(function () {
+        $.connection.hub.start().done(function () {
+            if ($txt.value.substring(0, 5) == '!play') {
+                var videoId = youTubeGetId($txt.value.substring(6, $txt.value.length));
+                chat.server.send(JSON.stringify({ Type: 1, VideoId: videoId, currentId: "", nextId: "", Value: "", Username: username })).done(function () {
+                    $txt.value = '';
+                });
+            } else if ($txt.value == '!skip') {
+                chat.server.send(JSON.stringify({ Type: 2, VideoId: "", currentId: "", nextId: "", Value: "", Username: username })).done(function () {
+                    $txt.value = '';
+                });
+            } else if ($txt.value.length > 0) {
+                chat.server.send(JSON.stringify({ Type: 0, VideoId: "", currentId: "", nextId: "", Value: $txt.value, Username: username })).done(function () {
+                    $txt.value = '';
+                });
+            }
+        });
+    });
+
+    chat.client.addMessage = function (message) {
+        var el = document.createElement('p');
+        var data = JSON.parse(message);
+        if (data.Type == 0) {
+            el.innerHTML = data.Username + ": " + data.Value;
+            $messages.appendChild(el);
+        }
+        if (data.Type == 1) {
+            el.innerHTML = data.Username + " заказал " + data.VideoId;
+            $messages.appendChild(el);
+        }
+        if (data.Type == 2) {
+            skip = true;
+            el.innerHTML = "Видео пропущено";
+            nextId = data.NextId;
+            console.log(nextId);
+            console.log(data.CurrentId);
+            player.loadVideoById(nextId, 0, 'small');
+            $messages.appendChild(el);
+        }
+    };
+
+    
+    
+
+    /*document.getElementById('go_reg').onclick = function () {
+        if ($txt.value.substring(0, 5) == '!play') {
+            videoId = youTubeGetId($txt.value.substring(6, $txt.value.length));
+            playList.push(videoId);
+            url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + videoId + "&key=" + apiKey;
+            socket.send(username + ' requested ' + videoId);
+            $txt.value = '';
+            console.log(httpGet(url));
+        } else if ($txt.value == '!skip') {
+            skip = true;
+            player.pauseVideo();
+            socket.send("Видео пропущено");
+            $txt.value = '';
+        }
+        else
+        {
+            if ($txt.value.length > 0) {
+                socket.send(username + ': ' + $txt.value);
+                $txt.value = '';
+            }
+        }
+    };*/
+
+        window.onload = function () {
+            var scrollinDiv = document.getElementById('messages');
+            setInterval(function () {
+                scrollinDiv.scrollTop = 9999;
+            }, 100);
+    }
+
+        /*function httpGet(url) {
+            var x = new XMLHttpRequest();
+            x.open("GET", url, false);
+            x.send(null);
+            return x.responseText;
+        }*/
+
+        function youTubeGetId(url) {
+            var expression = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be[.]?\/|youtube\.com[.]?\/(?:embed\/|v\/|watch\/?\?(?:\S+=\S*&)*v=))([\w-]{11})\S*$/;
+            return url.match(expression) ? RegExp.$1 : undefined;
+        }
+        
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                playerVars: {'autoplay': 1, 'controls': 1},
+                height: '360',
+                width: '640',
+                videoId: 'OdPutNzVDnQ',
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            
+        }
+
+        function onPlayerStateChange(event) {
+            currentId = event.target.getVideoData().video_id;
+            if (event.data == YT.PlayerState.ENDED) {
+                event.target.loadVideoById(nextId, 0, 'small');
+                event.target.playVideo();
+            }
+            /*if (event.data == YT.PlayerState.PAUSED && skip) {
+                event.target.loadVideoById(nextId, 0, 'small');
+                event.target.playVideo();
+                skip = false;
+            }*/
+        }
+    
+        function getNextVIdeoId() {
+            for (var i = 0; i < playList.length; i++) {
+                if (playList[i] == currentId) {
+                    return playList[i + 1];
+                }
+            }
+        }
+
+</script>
+

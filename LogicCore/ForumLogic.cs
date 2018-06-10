@@ -32,10 +32,11 @@ namespace LogicCore
 
         public List<Topic> GetAllTopics(int id) => _forumDao.GetAllTopics(id);
 
-        public void AddComment(int topicId, string author, string text)
+        public void AddComment(int topicId, string topicName, string author, string text)
         {
             Comment comment = new Comment()
             {
+                TopicName = topicName,
                 TopicId = topicId,
                 Author = author,
                 Text = text,

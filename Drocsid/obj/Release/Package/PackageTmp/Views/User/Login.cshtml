@@ -1,0 +1,34 @@
+﻿@model Drocsid.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<body>
+    <div class="content">
+        <h2>Вход</h2>
+        <div class="register">
+            @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "reg" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+            <p>
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(Model => Model.Username)
+                @Html.ValidationMessageFor(Model => Model.Username)
+            </p>
+            <p>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(Model => Model.Password)
+                @Html.ValidationMessageFor(Model => Model.Password)
+            </p>
+            <p>
+                @Html.LabelFor(m => m.RememberMe)
+                @Html.CheckBoxFor(m => m.RememberMe)
+            </p>
+                <p><input id="go_reg" type="submit" name="" value="Войти"></p>
+            }
+
+        </div>
+    </div>
+

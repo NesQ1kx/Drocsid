@@ -130,3 +130,5 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Newtonsoft.Json.xml
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\GravatarHelper.Common.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\GravatarHelper.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Entities.dll.config
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.Core.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.SystemWeb.resources.dll

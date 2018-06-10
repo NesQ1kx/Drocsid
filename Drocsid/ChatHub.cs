@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Script.Serialization;
+//using Drocsid.Json;
 using Drocsid.Models;
 using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Json;
+using Newtonsoft.Json;
 
 namespace Drocsid
 {
@@ -15,6 +21,7 @@ namespace Drocsid
         static List<string> ids = new List<string> { "OdPutNzVDnQ", "lNb0VoHmWf8" };
         static string currentVideoId = "OdPutNzVDnQ";
         static string nextVideoId = "lNb0VoHmWf8";
+        string apiKey = "AIzaSyBhzaHS-KBV6sNUQ-ZlkMMq7j38-CK4aPM";
         private JavaScriptSerializer ser = new JavaScriptSerializer();
 
         public void Send(string message)
@@ -35,11 +42,23 @@ namespace Drocsid
                     break;
                 case MessageType.Play:
                     ids.Add(msg.VideoId);
+                    string url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + msg.VideoId + "&key=" + apiKey;
+                     WebRequest req = WebRequest.Create(url);
+                     WebResponse resp = req.GetResponse();
+                     Stream stream = resp.GetResponseStream();
+                     StreamReader sr = new StreamReader(stream);
+                     string res = sr.ReadToEnd();
+                     sr.Close();
+                    /*  WebClient client = new WebClient { Encoding = Encoding.UTF8 };
+                      //client.Headers.Add("user-agent", "Mozilla/5.0");
+                      var res = client.DownloadString(url);*/
+                    //var response = JsonConvert.DeserializeObject<JsonObj>(res); 
+                    var jsonObj = JsonObj.FromJson(res);
                     Clients.All.addMessage(ser.Serialize(new
                     {
                         Type = msg.Type,
                         CurrentId = "",
-                        VideoId = msg.VideoId,
+                        VideoId = jsonObj.Items[0].Snippet.Title,
                         NextId = "",
                         Value = "",
                         Username = msg.Username
@@ -68,7 +87,29 @@ namespace Drocsid
                         Username = msg.Username
                     }));
                     break;
+                case MessageType.VideoEnded:
+                    /*int currI1 = 0;
+                    for (int i = currI1; i < ids.Count; i++)
+                    {
+                        if (currentVideoId == ids[i])
+                        {
+                            currentVideoId = nextVideoId;
+                            nextVideoId = ids[i + 1];
+                            currI1++;
+                            //break;
+                        }
+                    }*/
 
+                    Clients.All.addMessage(ser.Serialize(new
+                    {
+                        Type = msg.Type,
+                        CurrentId = "",
+                        VideoId = "",
+                        NextId = nextVideoId,
+                        Value = "",
+                        Username = msg.Username
+                    }));
+                    break;
             }
            // Clients.All.addMessage(message);
         }
@@ -84,7 +125,7 @@ namespace Drocsid
                 Clients.Caller.onConnected(ser.Serialize(new
                 {
                     Type = MessageType.Message,
-                    CurrentId = currentVideoId,
+                    CurrentId = nextVideoId,
                     VideoId = "",
                     NextId = "",
                     Value = "",

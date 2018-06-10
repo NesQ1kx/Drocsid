@@ -1,0 +1,38 @@
+﻿@model Entities.User
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<div class="content">
+    <h2>Профиль</h2>
+    <div class="userbar">
+        @*<img src="images/1.jpg" alt="" width="20%">*@
+        @Html.GravatarImage(Model.Email, cssClass: "gravatar img-responsive")
+        <div id="info">
+            <p id="name">@Model.Username</p>
+            @if(Model.Role == "admin")
+            {
+                <p id="status">Администраторы</p>
+            } else
+            {
+                <p id="status">Пользователи</p>
+            }
+        </div>
+        <div class="info">
+            <div>
+                <p class="first">Сообщений</p>
+                <p class="second">@Model.Messages</p>
+            </div>
+            <div>
+                <p class="first">На форуме</p>
+                <p class="second">@ViewBag.Time</p>
+            </div>
+            <div>
+                <p class="first">Регистрация</p>
+                <p class="second">@Model.RegDate.ToShortDateString()</p>
+            </div>
+        </div>
+    </div>
+    @Html.Action("UserActivity", "User", new { userName = Model.Username, email = Model.Email })
+</div>

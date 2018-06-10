@@ -4,7 +4,7 @@
 {
 <div class="topic">
     <div class="user">
-        <h4><a href="">@c.Author</a></h4>
+        <h4><a href="@Url.Action("Profile", "User", new { userName = c.Author})">@c.Author</a></h4>
             @Html.Action("UserInfo", "Forum", new { userName = c.Author})
     </div>
     <div class="text">

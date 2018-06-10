@@ -1,0 +1,9 @@
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\bin\Release\DalContracts.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\bin\Release\DalContracts.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\bin\Release\Entities.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\bin\Release\Entities.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\bin\Release\Entities.dll.config
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Release\DalContracts.csprojResolveAssemblyReference.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Release\DalContracts.csproj.CoreCompileInputs.cache
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Release\DalContracts.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\DalContracts\obj\Release\DalContracts.pdb

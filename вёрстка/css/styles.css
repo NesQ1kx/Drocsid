@@ -205,6 +205,7 @@ body {
 
 .topic {
   display: inline;
+  word-wrap: break-word;
 }
 
 .image img {
@@ -225,7 +226,6 @@ body {
   margin: 0 auto;
   margin-bottom: 10px;
 }
-
 .topic_content {
   display: inline-block;
   position: absolute;
@@ -447,4 +447,91 @@ body {
 
 .addtopic .reg label {
   width: 13%;
+}
+
+
+/*Профиль*/
+
+.userbar {
+  margin: 0 auto;
+  width: 85%;
+  background: #335F5C;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+#info {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#name {
+  display: inline;
+  position: relative;
+  color: #779E9B;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 45px;
+}
+
+#status {
+  position: relative;
+  color: #fff;
+  font-family: sans-serif;
+  bottom: 15px;
+}
+
+.info {
+  display: block;
+}
+
+.info div {
+  display: inline-block;
+  text-align: center;
+  border-right: 1px solid #1B403D;
+}
+
+.info :last-child {
+  border: none;
+}
+
+.first {
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 13;
+  color: #97D6D1;
+}
+
+.second {
+  font-size: 18;
+  font-family: sans-serif;
+  color: #97D6D1;
+}
+
+.info p {
+  padding: 0;
+  margin: 0;
+  margin-right: 30px;
+}
+
+.activity {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.activity .topic_content {
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.activity p {
+  font-family: sans-serif;
+  font-size: 20;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  color: #6a7c99;
 }

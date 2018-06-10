@@ -17,3 +17,5 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Debug\Entities.dll.config
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.Migrations.SampleMigration.resources
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.csproj.GenerateResource.Cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.Migrations.Migration.resources
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.Migrations.migration2.resources
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Debug\Dal.Migrations.migration3.resources

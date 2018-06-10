@@ -22,15 +22,21 @@ namespace LogicCore
             {
                 Username = username,
                 Password = password,
-                Email = email
+                Email = email,
+                RegDate = DateTime.Now
             };
 
             _userDao.Add(user);
 
         }
 
-        public bool CheckUser(string username, string password) => _userDao.UserExist(username, password);
-        
+        public bool CheckUser(string username, string password)
+        {
+            User user = _userDao.GetUserByLogin(username);
+            if (_userDao.UserExist(username, password) && user.ConfirmedEmail) return true;
+            return false;
+        }
+
 
         public bool CheckUserReg(string username)
         {
@@ -42,6 +48,20 @@ namespace LogicCore
             return false;
         }
         
+        public User GetUserByLogin(string userName)
+        {
+            return _userDao.GetUserByLogin(userName);
+        }
+
+        public List<Comment> GetUserComments(string userName)
+        {
+            return _userDao.GetUserComments(userName);
+        }
+
+        public void ConfirmEmail(string userName)
+        {
+            _userDao.ConfirmEmail(userName);
+        }
         
     }
 }

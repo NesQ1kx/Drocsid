@@ -12,6 +12,9 @@ namespace DalContracts
         void Add(User user);
         List<User> GetUsers();
         bool UserExist(string username, string password);
+        User GetUserByLogin(string userName);
+        List<Comment> GetUserComments(string userName);
+        void ConfirmEmail(string userName);
     }
 
 }
