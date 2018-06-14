@@ -5,7 +5,6 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Release\EntityFramework.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Release\EntityFramework.SqlServer.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Release\EntityFramework.xml
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\bin\Release\EntityFramework.SqlServer.xml
-C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\obj\Release\Entities.csprojResolveAssemblyReference.cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\obj\Release\Entities.csproj.CoreCompileInputs.cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\obj\Release\Entities.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Entities\obj\Release\Entities.pdb

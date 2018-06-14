@@ -201,7 +201,8 @@ namespace Drocsid.Controllers
         public bool IsAdmin()
         {
             Entities.User user = _logic.GetUserByLogin(User.Identity.Name);
-            if (user.Role == "admin") return true;
+            if (user == null) return false;
+            else if (user.Role == "admin") return true;
             else return false;
         }
 

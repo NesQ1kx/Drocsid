@@ -132,3 +132,7 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Entities.dll.config
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.Core.resources.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Drocsid.dll.config
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Moveax.Mvc.ErrorHandler.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.Owin.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.Owin.Security.resources.dll
