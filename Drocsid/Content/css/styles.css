@@ -1,5 +1,15 @@
+footer {
+  height: 50px;
+  color: #5f84c1;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+
 body {
-   background-color: #e5dfdf;
+   /*background-color: #e5dfdf;*/
+   background: url("images/background.jpg");
+   background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position: 0;
 }
 
 .logo {
@@ -396,12 +406,25 @@ body {
 
 /*Комната*/
 
-.room_content {
+.holder {
   margin-left: 100px;
   width: 50%;
   height: 400px;
-  background: red;
+  background: #333;
   display: inline-block;
+}
+
+.room_content {
+  width: 100%;
+  height: 100%;
+}
+
+.hide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .chat {
@@ -409,7 +432,7 @@ body {
   background: #625C5C;
   width: 300px;
   height: 320px;
-  display: inline-block;
+  display: none;
   position: absolute;
   color: white;
   font-family: Arial;
@@ -419,29 +442,85 @@ body {
 }
 
  .chat p {
-  display: inline-block;
+  /*display: inline-block;*/
   margin-bottom: -7px;
 }
 
 .chat_form {
   position: relative;
-  display: inline-block;
+  display: none;
   width: 320px;
   height: 50px;
   margin-left: 30px;
   top: -16px;
 }
 
-#input {
-  width: 210px;
-}
 .chat_form input {
   height: 40px;
+  width: 210px;
 }
 
 .chat_form #go_reg {
   width: 106px;
 }
+
+#enter {
+  background: #fff;
+  border:none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-weight: 1000;
+  color: #fff;
+  background: #5f84c1;
+  font-size: 15;
+  position: relative;
+  left: 15%;
+  bottom: 200;;
+}
+
+#enter:hover {
+  background: #000;
+}
+
+.controls {
+  display: inline-block;
+  position: absolute;
+  left: 21.5%;
+  top: 15%;
+}
+
+#mute {
+  display: none;
+  background: #fff;
+  border:none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-weight: 1000;
+  color: #fff;
+  background: #5f84c1;
+  font-size: 15;
+}
+
+#mute:hover {
+  background: #000;
+}
+
+#unmute {
+  display: none;
+  background: #fff;
+  border:none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-weight: 1000;
+  color: #fff;
+  background: #5f84c1;
+  font-size: 15;
+}
+
+#unmute:hover {
+  background: #000;
+}
+
 
 /*Добавление темы*/
 
@@ -535,3 +614,75 @@ body {
   word-break: break-all;
   color: #6a7c99;
 }
+
+/*Редактирование профиля*/
+.edit {
+  width: 80%;
+  padding: 10px;
+}
+
+.go_reg {
+  background: #fff;
+  border:none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-weight: 1000;
+  color: #fff;
+  background: #5f84c1;
+  font-size: 15;
+  text-decoration: none;
+}
+
+.go_reg:hover {
+  background: #000;
+}
+
+.edit a {
+  text-decoration: none;
+}
+
+
+#editpass{
+  display: none;
+}
+
+#editname{
+  display: none;
+}
+.editform {
+  top: 20%;
+  left: 35%;
+  position: fixed;
+  width: 30%;
+  height: 100px;
+  background: #3c3950;
+  z-index: 999;
+  text-align: center;
+}
+
+#big {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  z-index: 100;
+  display: none;
+}
+
+.editform label {
+  margin-right: 10px;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+#delcom {
+  float: right;
+  display: block;
+  position: relative;
+  left: 10px; 
+}
+

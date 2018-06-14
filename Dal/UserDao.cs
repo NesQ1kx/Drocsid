@@ -73,5 +73,71 @@ namespace Dal
                 db.SaveChanges();
             }
         }
+
+        public void EditPassword(int id, string password)
+        {
+            using (var db = new SampleContext())
+            {
+                var user = db.Users.Find(id);
+                user.Password = password;
+                db.SaveChanges();
+            }
+        }
+
+        public void EditName(int id, string username)
+        {
+            using (var db = new SampleContext())
+            {
+                var user = db.Users.Find(id);
+                var comments = db.Comments.Where(c => c.AuthorId == id).ToList();
+                var topics = db.Topics.Where(t => t.AuthorId == id).ToList();
+                if (comments != null)
+                {
+                    foreach(var c in comments)
+                    {
+                        c.Author = username;
+                    }
+                }
+                if(topics != null)
+                {
+                    foreach(var t in topics)
+                    {
+                        t.Author = username;
+                    }
+                }
+                user.Username = username;
+
+                db.SaveChanges();
+            }
+        }
+
+        public User GetUser(int id)
+        {
+            User user;
+            using (var db = new SampleContext())
+            {
+                return user = db.Users.Find(id);
+            }
+        }
+
+        public void UnbanUser(int id)
+        {
+            using (var db = new SampleContext())
+            {
+                var user = db.Users.Find(id);
+                user.IsBaned = false;
+                db.SaveChanges();
+            }
+        }
+
+        public void BanUser(int id)
+        {
+            using (var db = new SampleContext())
+            {
+                var user = db.Users.Find(id);
+                user.IsBaned = true;
+                db.SaveChanges();
+            }
+        }
     }
 }

@@ -8,24 +8,24 @@
     <h2>@Model.TopicName</h2>
     <div class="topic">
         <div class="user">
-            <h4><a href="">@Model.Author</a></h4>
-            @Html.Action("UserInfo", "Forum", new { userName = Model.Author})
+            <h4><a href="@Url.Action("Profile", "User", new { userName = Model.Author})">@Model.Author</a></h4>
+            @Html.Action("UserInfo", "Forum", new { id = Model.AuthorId})
         </div>
         <div class="text">
             @Model.Text
 
         </div>
     </div>
-    @Html.Action("Comment", "Forum", new { id = Model.Id })
+    @Html.Action("Comment", "Forum", new { name = Model.Id })
 
     @if (User.Identity.IsAuthenticated)
     {
-        @Html.Action("AddComment", "Forum", new { id = Model.Id})
+        @Html.Action("AddComment", "Forum", new { id = Model.Id, topicName = Model.TopicName})
     }
     else
     {
         <div class="stop">
-            <img width="100" height="100" src="~/Content/images/stopcomment.jpg" alt="">
+            <img width="100" height="100" src="~/Content/images1/stopcomment.jpg" alt="">
             <p>Оставлять комментарии могут только зарегистрированные пользователи</p>
         </div>
     }

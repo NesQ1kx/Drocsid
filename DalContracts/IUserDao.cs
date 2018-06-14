@@ -15,6 +15,11 @@ namespace DalContracts
         User GetUserByLogin(string userName);
         List<Comment> GetUserComments(string userName);
         void ConfirmEmail(string userName);
+        void EditPassword(int id, string password);
+        void EditName(int id, string username);
+        User GetUser(int id);
+        void UnbanUser(int id);
+        void BanUser(int id);
     }
 
 }

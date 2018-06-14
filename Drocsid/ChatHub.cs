@@ -23,6 +23,8 @@ namespace Drocsid
         static string nextVideoId = "lNb0VoHmWf8";
         string apiKey = "AIzaSyBhzaHS-KBV6sNUQ-ZlkMMq7j38-CK4aPM";
         private JavaScriptSerializer ser = new JavaScriptSerializer();
+        private int currI = 0;
+
 
         public void Send(string message)
         {
@@ -49,10 +51,6 @@ namespace Drocsid
                      StreamReader sr = new StreamReader(stream);
                      string res = sr.ReadToEnd();
                      sr.Close();
-                    /*  WebClient client = new WebClient { Encoding = Encoding.UTF8 };
-                      //client.Headers.Add("user-agent", "Mozilla/5.0");
-                      var res = client.DownloadString(url);*/
-                    //var response = JsonConvert.DeserializeObject<JsonObj>(res); 
                     var jsonObj = JsonObj.FromJson(res);
                     Clients.All.addMessage(ser.Serialize(new
                     {
@@ -65,7 +63,6 @@ namespace Drocsid
                     }));
                     break;
                 case MessageType.Skip:
-                    int currI = 0;
                     for (int i = currI; i < ids.Count; i++)
                     {
                         if (currentVideoId == ids[i])
@@ -73,7 +70,6 @@ namespace Drocsid
                             currentVideoId = nextVideoId;
                             nextVideoId = ids[i + 1];
                             currI++;
-                            //break;
                         }
                     }
                    
@@ -88,17 +84,15 @@ namespace Drocsid
                     }));
                     break;
                 case MessageType.VideoEnded:
-                    /*int currI1 = 0;
-                    for (int i = currI1; i < ids.Count; i++)
+                    for (int i = currI; i < ids.Count; i++)
                     {
                         if (currentVideoId == ids[i])
                         {
                             currentVideoId = nextVideoId;
                             nextVideoId = ids[i + 1];
-                            currI1++;
-                            //break;
+                            currI++;
                         }
-                    }*/
+                    }
 
                     Clients.All.addMessage(ser.Serialize(new
                     {
@@ -111,7 +105,6 @@ namespace Drocsid
                     }));
                     break;
             }
-           // Clients.All.addMessage(message);
         }
 
 
@@ -125,7 +118,7 @@ namespace Drocsid
                 Clients.Caller.onConnected(ser.Serialize(new
                 {
                     Type = MessageType.Message,
-                    CurrentId = nextVideoId,
+                    CurrentId = currentVideoId,
                     VideoId = "",
                     NextId = "",
                     Value = "",

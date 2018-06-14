@@ -15,9 +15,14 @@ namespace Logic
         List<Section> GetSections();
         List<Topic> GetTopicsShort(int id);
         List<Topic> GetAllTopics(int id);
-        void AddComment(int topicId, string topicName, string author, string text);
-        void AddTopic(int sectionId, string author, string topicName, string text);
-        User GetUser(string userName);
-        string GetUserTime(string userName);
+        void AddComment(int topicId, string topicName, int authorId, string text);
+        void AddTopic(int sectionId, int authorId, string topicName, string text);
+        User GetUser(int id);
+        string GetUserTime(int id);
+        bool SectionExist(Section section);
+        bool TopicExist(int id);
+        Section GetSection(int id);
+        void DeleteTopic(int id);
+        void DeleteComment(int id);
     }
 }

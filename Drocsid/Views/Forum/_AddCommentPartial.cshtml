@@ -1,15 +1,32 @@
 ﻿@model Drocsid.Models.CommentModel
 <div class="commentform">
     <h3>Оставить комментарий</h3>
-    @*<form class="comment" action="Topic.html" method="post">*@
-    @using (Html.BeginForm("AddComment", "Forum", FormMethod.Post, new { @class = "comment" }))
+    @using (Html.BeginForm("AddComment", "Forum", FormMethod.Post, new { @class = "comment", @name = "go"}))
     {   
-        @*<p><label for="text">Ваш комментарий</label></p>*@
         <p>@Html.LabelFor(m => m.Text)</p>
-        @*<textarea name="text" rows="8" cols="80"></textarea>*@
         @Html.TextAreaFor(m => m.Text, 8, 80, new { })
+        @Html.ValidationMessageFor(m => m.Text)
         <p><input id="go_reg" type="submit" name="" value="Отправить"></p>
     }
 
-    @*</form>*@
 </div>
+<script>
+    document.forms.go.onsubmit = function () {
+        var text = document.getElementById("Text").value;
+        if (text != null && !hasWhiteSpaces(text)) {
+            if (text.length >= 3) {
+                return true;
+            } else {
+                alert("Длина  должна быть больше 3");
+                return false;
+            }
+        } else {
+            alert("Длина комметария должна быть больше 3");
+            return false;
+        }
+    }
+
+    function hasWhiteSpaces(s) {
+        return s.indexOf(' ') >= 0;
+    }
+</script>

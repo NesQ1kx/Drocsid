@@ -47,21 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201805280756450_SampleMigration.cs" />
-    <Compile Include="Migrations\201805280756450_SampleMigration.Designer.cs">
-      <DependentUpon>201805280756450_SampleMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805281700054_Migration.cs" />
-    <Compile Include="Migrations\201805281700054_Migration.Designer.cs">
-      <DependentUpon>201805281700054_Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806092007342_migration2.cs" />
-    <Compile Include="Migrations\201806092007342_migration2.Designer.cs">
-      <DependentUpon>201806092007342_migration2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806100825192_migration3.cs" />
-    <Compile Include="Migrations\201806100825192_migration3.Designer.cs">
-      <DependentUpon>201806100825192_migration3.cs</DependentUpon>
+    <Compile Include="Migrations\201806131823369_kek.cs" />
+    <Compile Include="Migrations\201806131823369_kek.Designer.cs">
+      <DependentUpon>201806131823369_kek.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SampleContext.cs" />
@@ -84,17 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805280756450_SampleMigration.resx">
-      <DependentUpon>201805280756450_SampleMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281700054_Migration.resx">
-      <DependentUpon>201805281700054_Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806092007342_migration2.resx">
-      <DependentUpon>201806092007342_migration2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806100825192_migration3.resx">
-      <DependentUpon>201806100825192_migration3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806131823369_kek.resx">
+      <DependentUpon>201806131823369_kek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

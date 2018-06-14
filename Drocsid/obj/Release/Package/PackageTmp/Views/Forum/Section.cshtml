@@ -12,7 +12,7 @@
         </div>
         @if(User.Identity.IsAuthenticated)
         {
-            <a href="@Url.Action("AddTopic", "Forum", new { id = Model.Id, name = Model.SectionName})" id="go_reg">Добавить тему</a>
+            <a href="@Url.Action("AddTopic", "Forum", new { id = Model.Id})" id="go_reg">Добавить тему</a>
         }
     </div>
 </div>

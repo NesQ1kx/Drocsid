@@ -17,6 +17,7 @@ namespace Drocsid.Controllers
 
         private readonly IUserLogic _logic;
         private readonly IForumLogic _flogic;
+        private static int _userId;
 
         public UserController(IUserLogic logic, IForumLogic flogic)
         {
@@ -47,9 +48,7 @@ namespace Drocsid.Controllers
                     smtp.Credentials = new NetworkCredential("noreplydrocsid@gmail.com", "Drocsid_2018");
                     smtp.EnableSsl = true;
                     smtp.Send(msg);
-                    _logic.AddUser(model.Username, model.Password, model.Email);
-                    /* FormsAuthentication.SetAuthCookie(model.Username, false);
-                     return RedirectToAction("Index", "Home");*/
+                    _logic.AddUser(model.Username, CreatePasswordHash(model.Password /*_logic.GenerateSalt(model.Password.Length)*/), model.Email);
                     return RedirectToAction("Confirm", "User", new { email = model.Email });
                 } else
                 {
@@ -69,14 +68,21 @@ namespace Drocsid.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
+            Entities.User user = _logic.GetUserByLogin(model.Username);
             if (ModelState.IsValid)
             {
-                if (_logic.CheckUser(model.Username, model.Password))
+                if (_logic.CheckUser(model.Username, CreatePasswordHash(model.Password)))
                 {
-                    FormsAuthentication.SetAuthCookie(model.Username, false);
-                    return RedirectToAction("Index", "Home");
+                    if(!user.IsBaned)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+                        return RedirectToAction("Index", "Home");
+                    } else
+                    {
+                        ModelState.AddModelError("", "Учётная запись заблокирована");
+                    }
                 } else
-                {
+                {   
                     ModelState.AddModelError("", "Неверный логин/пароль/почта не подтверждена");
                 }
             }
@@ -103,15 +109,101 @@ namespace Drocsid.Controllers
 
         public ActionResult Profile(string userName)
         {
-            ViewBag.Time = _flogic.GetUserTime(userName);
-            return View(_logic.GetUserByLogin(userName));
+            ViewBag.IsAdmin = IsAdmin();
+            Entities.User user = _logic.GetUserByLogin(userName);
+            if(user != null)
+            {
+                ViewBag.Time = _flogic.GetUserTime(user.Id);
+                return View(_logic.GetUser(user.Id));
+            } else
+            {
+                return new HttpStatusCodeResult(404, "User Not Found");
+            }
+          
         }
 
         public ActionResult UserActivity(string userName, string email)
         {
             ViewBag.Email = email;
             return PartialView("_UserActivityPartial", _logic.GetUserComments(userName));
-        } 
+        }
+
+        #region hash
+        public virtual string CreatePasswordHash(string password, /*string saltkey,*/ string passwordFormat = "SHA1")
+        {
+            if (String.IsNullOrEmpty(passwordFormat))
+                passwordFormat = "SHA1";
+            string hashedPassword =
+#pragma warning disable CS0618 // Тип или член устарел
+                FormsAuthentication.HashPasswordForStoringInConfigFile(
+                    password, passwordFormat);
+#pragma warning restore CS0618 // Тип или член устарел
+            return hashedPassword;
+        }
+        #endregion hash
+
+        public ActionResult EditProfile(int id)
+        {
+            _userId = id;
+            ViewBag.Id = id;
+            if (_logic.UserExist(id))
+            {
+                return View();
+            }
+            else return new HttpStatusCodeResult(404, "User Not Found");
+        }
+
+        [HttpPost]
+        public ActionResult EditPassword(EditModel model)
+        {
+            if (!String.IsNullOrWhiteSpace(model.Password))
+            {
+                if(model.Password.Length >= 6)
+                {
+                    _logic.EditPassword(model.Id, CreatePasswordHash(model.Password));
+                    return RedirectToAction("EditProfile", new { id = _userId });
+                }
+            } 
+            return RedirectToAction("EditProfile", new { id = _userId });
+        }
+
+        [HttpPost]
+        public ActionResult EditName(EditModel model)
+        {
+            if(!String.IsNullOrWhiteSpace(model.Username))
+            {
+                if(model.Username.Length >= 3)
+                {
+                    if(!_logic.CheckUserReg(model.Username))
+                    {
+                        _logic.EditName(model.Id, model.Username);
+                        return RedirectToAction("Logout");
+                    } 
+                }
+            }
+            return RedirectToAction("EditProfile", new { id = _userId });
+        }
+
+        public ActionResult UnbanUser(int id, string username)
+        {
+            _logic.UnbanUser(id);
+            return RedirectToAction("Profile", "User", new { userName = username });
+        }
+
+        public ActionResult BanUser(int id, string username)
+        {
+            _logic.BanUser(id);
+            return RedirectToAction("Profile", "User", new { userName = username });
+
+        }
+
+        [NonAction]
+        public bool IsAdmin()
+        {
+            Entities.User user = _logic.GetUserByLogin(User.Identity.Name);
+            if (user.Role == "admin") return true;
+            else return false;
+        }
 
     }
 }

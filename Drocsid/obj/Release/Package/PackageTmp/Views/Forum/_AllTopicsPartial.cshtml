@@ -8,11 +8,15 @@
                 <a href="@Url.Action("Topic", "Forum", new { id = t.Id})">@t.TopicName</a>
             </div>
             <div class="author">
-                <a href="#">@t.Author</a>
+                <a href="@Url.Action("Profile", "User", new { userName = t.Author})">@t.Author</a>
             </div>
             <div class="date">
                 @t.Pubdate
             </div>
+            @if(ViewBag.IsAdmin)
+            {
+                <a href="@Url.Action("DeleteTopic", "Forum", new { id = t.Id, sectionId = t.SectionId})" class="go_reg">Удалить тему</a>
+            }
         </div>
     </div>
 }

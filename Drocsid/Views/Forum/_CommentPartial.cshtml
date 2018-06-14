@@ -5,10 +5,14 @@
 <div class="topic">
     <div class="user">
         <h4><a href="@Url.Action("Profile", "User", new { userName = c.Author})">@c.Author</a></h4>
-            @Html.Action("UserInfo", "Forum", new { userName = c.Author})
+            @Html.Action("UserInfo", "Forum", new { id = c.AuthorId})
     </div>
     <div class="text">
         @c.Text
+        @if(ViewBag.IsAdmin)
+        {
+            <a href="@Url.Action("DeleteComment", "Forum", new { id = c.Id, topicId = c.TopicId})" style ="text-decoration: none; display: inline-block; float: right; position: relative" class="go_reg" id="delcom">Удалить комментарий </a>
+        }
     </div>
 </div>
 }

@@ -535,3 +535,43 @@ body {
   word-break: break-all;
   color: #6a7c99;
 }
+
+/*Редактирование профиля*/
+.edit {
+  width: 80%;
+  padding: 10px;
+}
+
+.go_reg {
+  background: #fff;
+  border:none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-weight: 1000;
+  color: #fff;
+  background: #5f84c1;
+  font-size: 15;
+}
+
+.go_reg:hover {
+  background: #000;
+}
+
+.edit a {
+  text-decoration: none;
+}
+
+
+#pass{
+  display: none;
+}
+
+#name{
+  display: none;
+}
+.editform {
+  position: fixed;
+  width: 20%;
+  height: 200px;
+  background: #16f734;
+}

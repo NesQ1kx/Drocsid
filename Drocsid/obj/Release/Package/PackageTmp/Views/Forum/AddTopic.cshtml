@@ -7,18 +7,52 @@
 <div class="content">
     <h2>Добавить тему</h2>
     <div class="addtopic">
-        @using(Html.BeginForm("AddTopic", "Forum", FormMethod.Post, new { @class = "reg" }))
+        @using(Html.BeginForm("AddTopic", "Forum", FormMethod.Post, new { @class = "reg", @name = "go"}))
         {
              <p>
                 @Html.LabelFor(m => m.TopicName)
                 @Html.TextBoxFor(m => m.TopicName)
+                @*@Html.ValidationMessageFor(m => m.TopicName)*@
             </p>
             <p>
                 @Html.LabelFor(m => m.Text)
                 @Html.TextAreaFor(m => m.Text, 8, 80, new { })
+                @*@Html.ValidationMessageFor(m => m.Text)*@
             </p>
             <p><input id="go_reg" type="submit" name="" value="Отправить"></p>
         }
     </div>
 </div>
+<script>
+    document.forms.go.onsubmit = function () {
+        var name = document.getElementById("TopicName").value;
+        var text = document.getElementById("Text").value;
+
+        if (name != null && !hasWhiteSpaces(name)) {
+            if (name.length >= 6) {
+                if (text != null && !hasWhiteSpaces(text)) {
+                    if (text.length >= 6) {
+                        return true;
+                    } else {
+                        alert("Длина содержания темы должна быть больше 6");
+                    }
+                } else {
+                    alert("Длина содержания темы должна быть больше 6");
+                }
+            } else {
+                alert("Длина названия темы должна быть больше 6");
+                return false;
+            }
+        } else {
+            alert("Длина названия темы должна быть больше 6");
+            return false;
+        }
+
+        
+    }
+
+    function hasWhiteSpaces(s) {
+        return s.indexOf(' ') >= 0;
+    }
+</script>
 

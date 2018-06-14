@@ -75,6 +75,9 @@
     <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
+    <Reference Include="Moveax.Mvc.ErrorHandler, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moveax.Mvc.ErrorHandler.1.2.3.0\lib\net40\Moveax.Mvc.ErrorHandler.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -138,6 +141,23 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\csssite\images\background.jpg" />
+    <Content Include="Content\csssite\images\favicon.ico" />
+    <Content Include="Content\csssite\images\logo.jpg" />
+    <Content Include="Content\csssite\styles.css" />
+    <Content Include="Content\images1\1.jpg" />
+    <Content Include="Content\images1\10.jpg" />
+    <Content Include="Content\images1\11.jpg" />
+    <Content Include="Content\images1\2.jpg" />
+    <Content Include="Content\images1\3.jpg" />
+    <Content Include="Content\images1\4.jpg" />
+    <Content Include="Content\images1\5.jpg" />
+    <Content Include="Content\images1\6.jpg" />
+    <Content Include="Content\images1\7.jpg" />
+    <Content Include="Content\images1\8.jpg" />
+    <Content Include="Content\images1\9.jpg" />
+    <Content Include="Content\images1\background.jpg" />
+    <Content Include="Content\images1\stopcomment.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -153,9 +173,18 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
+    <Content Include="Views\Error\Http404.cshtml" />
+    <Content Include="Views\Error\Default.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
+    <Content Include="Views\Error\BadRequest.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -164,10 +193,14 @@
       <DependentUpon>ChatHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="ChatHub.cs" />
+    <Compile Include="ChatHub1.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="ExtHandleErrorAttribute.cs" />
+    <Compile Include="FilterConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +208,7 @@
     <Compile Include="JsonObj.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\EditModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
@@ -212,12 +246,8 @@
     <Content Include="Views\Room\VideoBot.cshtml" />
     <Content Include="Views\User\Profile.cshtml" />
     <Content Include="Views\User\_UserActivityPartial.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <Content Include="Views\User\EditProfile.cshtml" />
+    <Content Include="Views\User\_EditPasswordPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

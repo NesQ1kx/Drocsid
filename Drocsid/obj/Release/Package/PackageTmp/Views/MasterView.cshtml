@@ -6,16 +6,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="~/Content/css/styles.css">
+    <link rel="stylesheet" href="/Content/csssite/styles.css">
+    @*<link rel="stylesheet" href="/Content/css/styles.css">*@
+    <link rel="shortcut icon" href="/Content/csssite/images/favicon.ico" type="image/x-icon">
     <title>Drocsid</title>
-    <script src="~/Content/scripts/jquery.js" charset="utf-8"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/jquery.signalR-2.2.3.min.js"></script>
+    <script src="/Content/scripts/jquery.js" charset="utf-8"></script>
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/Scripts/jquery.signalR-2.2.3.min.js"></script>
     <script src="~/signalr/hubs"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <header>
-    <div class="logo">Какая-то картинка</div>
     <nav id="menu1">
         <ul class="topmenu">
             <li>
@@ -23,7 +25,6 @@
                 <ul class="submenu">
                     <li><a href="@Url.Action("RadioBot", "Room")">Радио-бот</a></li>
                     <li><a href="@Url.Action("VideoBot", "Room")">Видео-бот</a></li>
-                    <li><a href="">Плейлисты</a></li>
                 </ul>
             </li>
             <li><a href="@Url.Action("Index", "Home")" class="left">Главная</a>
@@ -31,7 +32,7 @@
             @if(User.Identity.IsAuthenticated)
             {
                 <li><a href="@Url.Action("Logout", "User")" class="right">Выход</a></li>
-                <li><a href="#" class="right">@User.Identity.Name</a></li>
+                <li><a href="@Url.Action("Profile", "User", new { userName = User.Identity.Name  })" class="right">@User.Identity.Name</a></li>
             } else
             {
                 <li><a href="@Url.Action("Login", "User")" class="right">Вход</a></li>
@@ -45,6 +46,20 @@
 <body>
     @RenderBody()
 </body>
+<script>
+    function edit(id) {
+        if (id == 1) {
+            document.getElementById('editpass').style.display = 'block';
+            document.getElementById('big').style.display = 'block';
+        } else if (id == 2) {
+            document.getElementById('editname').style.display = 'block';
+            document.getElementById('big').style.display = 'block';
+        }
+    }
 
-<h2>Footer</h2>
+    
+</script>
+<footer class="content">
+    Drocsid© 2018 All rights reserved. Disigned by NesQ1k and a4(sabbkull) on ASP .NET
+</footer>
 </html>

@@ -11,9 +11,8 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Release\Entities.dll.config
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Release\EntityFramework.xml
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\bin\Release\EntityFramework.SqlServer.xml
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.csprojResolveAssemblyReference.cache
-C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.Migrations.SampleMigration.resources
-C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.Migrations.Migration.resources
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.csproj.GenerateResource.Cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.csproj.CoreCompileInputs.cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Dal\obj\Release\Dal.Migrations.kek.resources

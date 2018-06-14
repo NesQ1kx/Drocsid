@@ -10,10 +10,12 @@ namespace Drocsid.Models
     {
         [Required]
         [Display(Name = "Название темы")]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
         public string TopicName { get; set; }
 
         [Required]
         [Display(Name = "Содержание")]
+        [StringLength(500, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
         public string Text { get; set; }
 
     }

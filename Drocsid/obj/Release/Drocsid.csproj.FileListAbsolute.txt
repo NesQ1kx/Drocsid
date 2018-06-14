@@ -69,3 +69,9 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\obj\Release\Drocsid.csprojResolveAs
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\obj\Release\Drocsid.csproj.CoreCompileInputs.cache
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\obj\Release\Drocsid.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\obj\Release\Drocsid.pdb
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.Core.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Moveax.Mvc.ErrorHandler.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.Owin.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.Owin.Security.resources.dll

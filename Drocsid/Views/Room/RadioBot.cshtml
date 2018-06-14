@@ -6,11 +6,14 @@
 
 <div class="content">
     <h2>Радио бот</h2>
-    <div class="room_content" id="player">
-        <div class="RP_player_5 horizontal"><div class="rp-header"><a href="https://radiopotok.ru/" target="_blank">Radio online</a></div></div>
-            <script type="text/javascript" src="//yandex.st/jquery/1.8.2/jquery.min.js"></script>
+    <div class="holder">
+        <div class="room_content" id="player">
+            <div class="RP_player_5 horizontal"><div class="rp-header"><a href="https://radiopotok.ru/" target="_blank">Radio online</a></div></div>
+            @*<script type="text/javascript" src="//yandex.st/jquery/1.8.2/jquery.min.js"></script>*@
             <script async type="text/javascript" src="//radiopotok.ru/f/script5/8ce27b9d78f2921f0912899fc2feb3ec.js" charset="UTF-8"></script>
+        </div>
     </div>
+   
     <div class="chat" id="messages"></div>
     @if (User.Identity.IsAuthenticated)
     {
@@ -35,33 +38,44 @@
         $txt = document.getElementById('message'),
         $messages = document.getElementById('messages');
 
-    if (typeof (WebSocket) !== 'undefined') {
-        socket = new WebSocket("ws://localhost/Drocsid/ChatHandler.ashx");
-    } else {
-        socket = new MozWebSocket("ws://localhost/Drocsid/ChatHandler.ashx");
+    var chat = $.connection.chatHub1;
+
+    chat.client.onConnected = function (message) {
+        var data = JSON.parse(message);
+        currentId = data.CurrentId
+        console.log(currentId);
+        $('#messages').html('<p>Добро пожаловать ' + data.Username + '</p>')
     }
+
     $('#enter').click(function () {
         $('.chat').css('display', 'inline-block');
         $('.chat_form').css('display', 'inline-block');
+        $('#mute').css('display', 'inline-block');
+        $('#unmute').css('display', 'inline-block');
         $('#enter').hide();
-       
+        $.connection.hub.start().done(function () {
+            chat.server.connect(username);
+        });
 
     });
-    socket.onmessage = function (msg) {
+
+
+    $('#go_reg').click(function () {
+        $.connection.hub.start().done(function () {
+            if ($txt.value.length > 0) {
+                chat.server.send(JSON.stringify({ Type: 0, VideoId: "", currentId: "", nextId: "", Value: $txt.value, Username: username })).done(function () {
+                    $txt.value = '';
+                });
+            }
+        });
+    });
+
+    chat.client.addMessage = function (message) {
         var el = document.createElement('p');
-        el.innerHTML = msg.data;
-        $messages.appendChild(el);
-
-    };
-
-    socket.onclose = function (event) {
-        alert('Обрыв соединения. Пожалуйста, обновите страницу');
-    };
-
-    document.getElementById('go_reg').onclick = function () {
-        if ($txt.value.length > 0) {
-            socket.send(username + ': ' + $txt.value);
-            $txt.value = '';
+        var data = JSON.parse(message);
+        if (data.Type == 0) {
+            el.innerHTML = data.Username + ": " + data.Value;
+            $messages.appendChild(el);
         }
     };
 
@@ -70,6 +84,6 @@
             setInterval(function () {
                 scrollinDiv.scrollTop = 9999;
             }, 100);
-    }
+        }
 
 </script>

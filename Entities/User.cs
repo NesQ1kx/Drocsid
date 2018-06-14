@@ -17,5 +17,6 @@ namespace Entities
         public int Messages { get; set; }
         public string Role { get; set; }
         public int Status { get; set; }
+        public bool IsBaned { get; set; }
     }
 }

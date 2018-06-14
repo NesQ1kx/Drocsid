@@ -26,7 +26,6 @@ C:\Users\NessQ1k\source\repos\Drocsid\Drocsid\obj\Debug\Drocsid.csprojResolveAss
 C:\Users\NessQ1k\source\repos\Drocsid\Drocsid\obj\Debug\Drocsid.csproj.CoreCompileInputs.cache
 C:\Users\NessQ1k\source\repos\Drocsid\Drocsid\obj\Debug\Drocsid.dll
 C:\Users\NessQ1k\source\repos\Drocsid\Drocsid\obj\Debug\Drocsid.pdb
-C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Drocsid.dll.config
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Drocsid.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Drocsid.pdb
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\EntityFramework.dll
@@ -132,3 +131,4 @@ C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\GravatarHelper.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Entities.dll.config
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.Core.resources.dll
 C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\ru\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
+C:\Users\NessQ1k\Desktop\GIT\Drocsid\Drocsid\bin\Drocsid.dll.config

@@ -15,5 +15,12 @@ namespace Logic
         User GetUserByLogin(string userName);
         List<Comment> GetUserComments(string userName);
         void ConfirmEmail(string userName);
+        string GenerateSalt(int length);
+        bool UserExist(int id);
+        void EditPassword(int id, string password);
+        void EditName(int id, string username);
+        User GetUser(int id);
+        void UnbanUser(int id);
+        void BanUser(int id);
     }
 }

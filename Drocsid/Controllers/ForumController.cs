@@ -12,14 +12,16 @@ namespace Drocsid.Controllers
     public class ForumController : Controller
     {
         private readonly IForumLogic _logic;
+        private readonly IUserLogic _ulogic;
         private static int _topicId;
         private static int _sectionId;
         private static string _sectionName;
         private static string _topicName;
 
-        public ForumController(IForumLogic logic)
+        public ForumController(IForumLogic logic, IUserLogic ulogic)
         {
             _logic = logic;
+            _ulogic = ulogic;
         }
 
         public ActionResult Index()
@@ -27,14 +29,18 @@ namespace Drocsid.Controllers
             return View(_logic.GetSections());
         }
 
-        public ActionResult Section(int id, string sectionName)
+        public ActionResult Section(int id)
         {
-            Section section = new Section
+            Section section = _logic.GetSection(id);
+            
+            if (section != null)
             {
-                Id = id,
-                SectionName = sectionName
-            };
-            return View(section);
+                return View(section);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(404, "Section Not Found");
+            }
         }
 
         public ActionResult SectionTopicsShort(int id)
@@ -44,16 +50,27 @@ namespace Drocsid.Controllers
 
         public ActionResult SectionTopicsAll(int id)
         {
+            if (IsAdmin())
+            {
+                ViewBag.IsAdmin = true;
+            } else
+            {
+                ViewBag.IsAdmin = false;
+            }
             return PartialView("_AllTopicsPartial", _logic.GetAllTopics(id));
         }
 
         public ActionResult Topic(int id)
         {
-            return View(_logic.GetTopic(id));
+            if (_logic.TopicExist(id))
+                return View(_logic.GetTopic(id));
+            else return new HttpStatusCodeResult(404, "Topic Not Found");
         }
 
         public ActionResult Comment(int id)
         {
+            if (IsAdmin()) ViewBag.IsAdmin = true;
+            else ViewBag.IsAdmin = false;
             return PartialView("_CommentPartial", _logic.GetComments(id));
         }
 
@@ -68,13 +85,16 @@ namespace Drocsid.Controllers
         [HttpPost]
         public ActionResult AddComment(CommentModel model)
         {
-            
-            if(ModelState.IsValid)
+            Entities.User user = _ulogic.GetUserByLogin(User.Identity.Name);
+            if (ModelState.IsValid)
             {
-                _logic.AddComment(_topicId, _topicName, User.Identity.Name, model.Text);
-                return RedirectToAction("Topic", "Forum", new { id = _topicId});
+                _logic.AddComment(_topicId, _topicName, user.Id, model.Text);
+                return RedirectToAction("Topic", "Forum", new { id = _topicId });
+            } else
+            {
+                ModelState.AddModelError("", "Заполните поле");
             }
-
+            //return RedirectToAction("Topic", "Forum", new { id = _topicId });
             return PartialView("_AddCommentPartial", model);
         }
 
@@ -89,19 +109,40 @@ namespace Drocsid.Controllers
         [HttpPost]
         public ActionResult AddTopic(TopicModel model)
         {
-            if(ModelState.IsValid)
+            Entities.User user = _ulogic.GetUserByLogin(User.Identity.Name);
+            if (ModelState.IsValid)
             {
-                _logic.AddTopic(_sectionId, User.Identity.Name, model.TopicName, model.Text);
+                _logic.AddTopic(_sectionId, user.Id, model.TopicName, model.Text);
                 return RedirectToAction("Section", "Forum", new { id = _sectionId, sectionName = _sectionName });
             }
 
             return View(model);
         }
 
-        public ActionResult UserInfo(string userName)
+        public ActionResult UserInfo(int id)
         {
-            ViewBag.Time = _logic.GetUserTime(userName);
-            return PartialView("_UserInfoPartial", _logic.GetUser(userName));
+            ViewBag.Time = _logic.GetUserTime(id);
+            return PartialView("_UserInfoPartial", _logic.GetUser(id));
+        }
+
+        public ActionResult DeleteTopic(int id, int sectionId)
+        {
+            _logic.DeleteTopic(id);
+            return RedirectToAction("Section", "Forum", new { id = sectionId });
+        }
+
+        public ActionResult DeleteComment(int id, int topicId)
+        {
+            _logic.DeleteComment(id);
+            return RedirectToAction("Topic", "Forum", new { id = topicId });
+        }
+
+        [NonAction]
+        public bool IsAdmin()
+        {
+            Entities.User user = _ulogic.GetUserByLogin(User.Identity.Name);
+            if (user.Role == "admin") return true;
+            else return false;
         }
     }
 }

@@ -42,8 +42,10 @@ namespace Dal
             List<Section> sections;
             using(var db = new SampleContext())
             {
-                return sections = db.Sections.ToList();
+                sections = db.Sections.ToList();
             }
+
+            return sections;
         }
 
         public List<Topic> GetTopicsShort(int id)
@@ -82,22 +84,65 @@ namespace Dal
             }
         }
 
-        public User GetUser(string userName)
+        public User GetUser(int id)
         {
             User user;
             using (var db = new SampleContext())
             {
-                return user = (User) db.Users.Where(u => u.Username == userName).FirstOrDefault();
+                return user = db.Users.Find(id);
             }
         }
 
-        public void UpdateMessages(string userName)
+        public void UpdateMessages(int id)
         {
             User user;
             using (var db = new SampleContext())
             {
-                user = db.Users.Where(u => u.Username == userName).FirstOrDefault();
+                user = db.Users.Find(id);
                 user.Messages += 1;
+                db.SaveChanges();
+            }
+        }
+
+        public List<Topic> GetTopics()
+        {
+            List<Topic> topics;
+            using (var db = new SampleContext())
+            {
+                return topics = db.Topics.ToList();
+            }
+        }
+
+        public Section GetSection(int id)
+        {
+            Section section;
+            using (var db = new SampleContext())
+            {
+                return section = db.Sections.Find(id);
+            }
+        }
+
+        public void DeleteTopic(int id)
+        {
+            using (var db = new SampleContext())
+            {
+                Topic topic = db.Topics.Find(id);
+                List<Comment> comments = db.Comments.Where(c => c.TopicId == id).ToList();
+                foreach(var c in comments)
+                {
+                    db.Comments.Remove(c);
+                }
+                db.Topics.Remove(topic);
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteComment(int id)
+        {
+            using (var db = new SampleContext())
+            {
+                Comment comment = db.Comments.Find(id);
+                db.Comments.Remove(comment);
                 db.SaveChanges();
             }
         }
