@@ -24,5 +24,6 @@ namespace Logic
         Section GetSection(int id);
         void DeleteTopic(int id);
         void DeleteComment(int id);
+        void AddSection(string sectionName);
     }
 }

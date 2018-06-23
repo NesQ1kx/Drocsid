@@ -10,7 +10,7 @@ namespace Dal
 {
     public class SampleContext : DbContext
     {
-        public SampleContext():base("SampleContext")
+        public SampleContext():base("Web")
         {
 
         }
@@ -22,7 +22,8 @@ namespace Dal
         public DbSet<Section> Sections { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Topic> Topics { get; set; }
+        public DbSet<Stream> Streams { get; set; }
 
-       
+
     }
 }

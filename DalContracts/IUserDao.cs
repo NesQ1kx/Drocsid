@@ -20,6 +20,8 @@ namespace DalContracts
         User GetUser(int id);
         void UnbanUser(int id);
         void BanUser(int id);
+        void Increase(int id);
+        void Decrease(int id);
     }
 
 }

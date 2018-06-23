@@ -5,67 +5,7 @@
 }
 
 <div class="content">
-    <div class="streams">
-        <h2>Стримы</h2>
-        <ul class="games_menu">
-            <li><a href="#game1" class="active">Dota2</a></li>
-            <li><a href="#game2">CS:GO</a></li>
-            <li><a href="#game3">WoT</a></li>
-            <li><a href="#game4">StarCraft2</a></li>
-        </ul>
-        <div class="game" id="game1">
-            <div class="streamer">
-                <img src="/Content/images1/1.jpg" alt="" />
-                <a href="https://www.twitch.tv/alohadancetv" class="block" target="_blank">ALOHADANCE</a>
-            </div>
-            <div class="streamer">
-                <img src="~/Content/images1/2.jpg" alt="">
-                <a href="https://www.twitch.tv/versuta" class="block" target="_blank">VerSuta</a>
-            </div>
-            <div class="streamer">
-                <img src="~/Content/images1/3.jpg" alt="">
-                <a href="https://www.twitch.tv/dreadztv" class="block" target="_blank">Dread</a>
-            </div>
-            <div class="streamer">
-                <img src="/Content/images1/7.jpg" alt="" />
-                <a href="https://www.twitch.tv/a1taoda" class="block" target="_blank">ALTAODA</a>
-            </div>
-            <div class="streamer">
-                <img src="/Content/images1/8.jpg" alt="" />
-                <a href="https://www.twitch.tv/just_ns" class="block" target="_blank">Ns</a>
-            </div>
-            <div class="streamer">
-                <img src="/Content/images1/9.jpg" alt="" />
-                <a href="https://www.twitch.tv/qsnake" class="block" target="_blank">qSnake</a>
-            </div>
-        </div>
-        <div class="game" id="game2">
-            <div class="streamer">
-                <img src="~/Content/images1/4.jpg" alt="">
-                <a href="https://www.twitch.tv/ceh9" class="block" target="_blank">Ceh9</a>
-            </div>
-        </div>
-        <div class="game" id="game3">
-            <div class="streamer">
-                <img src="~/Content/images1/5.jpg" alt="">
-                <a href="https://www.twitch.tv/aktep" class="block" target="_blank">AkTep</a>
-            </div>
-            <div class="streamer">
-                <img src="/Content/images1/10.jpg" alt="" />
-                <a href="https://www.youtube.com/channel/UCDx2-SCLzDaC4vlh2PCGYQA" class="block" target="_blank">Jove</a>
-            </div>
-        </div>
-        <div class="game" id="game4" style="display:none">
-            <div class="streamer">
-                <img src="~/Content/images1/6.jpg" alt="">
-                <a href="https://www.twitch.tv/byunprime" class="block" target="_blank">Byun</a>
-            </div>
-            <div class="streamer">
-                <img src="/Content/images1/11.jpg" alt="" />
-                <a href="https://www.youtube.com/user/SlavaZhurin" class="block" target="_blank">MEDOEDTV</a>
-            </div>
-        </div>
-    </div>
+    @Html.Action("Streams", "Home");
 </div>
 <div class="content">
     <h2>Последние темы</h2>

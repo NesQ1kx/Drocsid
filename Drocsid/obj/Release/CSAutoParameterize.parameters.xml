@@ -3,4 +3,10 @@
   <parameter name="SampleContext-Web.config Connection String" description="SampleContext Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Data Source=.\SQLEXPRESS; AttachDbFilename=|DataDirectory|DrocsidDB1.mdf;  Initial Catalog=DrocsidDB1; Integrated Security=True;Persist Security Info=True" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\NessQ1k\\Desktop\\GIT\\Drocsid\\Drocsid\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SampleContext']/@connectionString" />
   </parameter>
+  <parameter name="Web-Web.config Connection String" description="Web Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Server=tcp:drocsidserver.database.windows.net,1433;Initial Catalog=DrocsidDB;Persist Security Info=False;User ID=DrocsidAdmin;Password=Goshak_1998;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30; " tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NessQ1k\\Desktop\\GIT\\Drocsid\\Drocsid\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Web']/@connectionString" />
+  </parameter>
+  <parameter name="kek-Web.config Connection String" description="kek Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="kek_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NessQ1k\\Desktop\\GIT\\Drocsid\\Drocsid\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='kek']/@connectionString" />
+  </parameter>
 </parameters>

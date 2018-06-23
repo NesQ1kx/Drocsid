@@ -15,7 +15,12 @@
             </div>
         </div>
     }
-     
-    
+
+    @if(ViewBag.IsAdmin)
+    {
+        <a href="@Url.Action("AddSection", "Forum")" id="go_reg" style="text-decoration:none;">Добавить раздел</a>
+    }
+
+
 </div>
 

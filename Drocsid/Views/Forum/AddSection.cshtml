@@ -1,0 +1,20 @@
+﻿@model  Drocsid.Models.SectionModel
+@{
+    ViewBag.Title = "AddSection";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<div class="content">
+    <h2>Добавить раздел</h2>
+    <div class="addtopic">
+        @using (Html.BeginForm("AddSection", "Forum", FormMethod.Post, new { @class = "reg"}))
+        {
+            <p>
+                @Html.LabelFor(m => m.SectionName)
+                @Html.TextBoxFor(m => m.SectionName)
+                @Html.ValidationMessageFor(m => m.SectionName)
+            </p>
+            <p><input id="go_reg" type="submit" name="" value="Создать раздел"></p>
+        }
+    </div>
+</div>

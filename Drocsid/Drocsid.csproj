@@ -179,6 +179,9 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Forbidden.cshtml" />
     <Content Include="Views\Error\BadRequest.cshtml" />
+    <Content Include="Views\Forum\AddSection.cshtml" />
+    <Content Include="Views\Home\_StreamsPartial.cshtml" />
+    <Content Include="Views\Home\AddStream.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -211,7 +214,9 @@
     <Compile Include="Models\EditModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Models\SectionModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
+    <Compile Include="Models\StreamModel.cs" />
     <Compile Include="Models\TopicModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="MyWebSocketHandler.cs" />

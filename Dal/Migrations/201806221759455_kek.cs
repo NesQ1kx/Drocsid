@@ -31,6 +31,18 @@ namespace Dal.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Streams",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ChanelName = c.String(),
+                        Photo = c.String(),
+                        Link = c.String(),
+                        Category = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Topics",
                 c => new
                     {
@@ -68,6 +80,7 @@ namespace Dal.Migrations
         {
             DropTable("dbo.Users");
             DropTable("dbo.Topics");
+            DropTable("dbo.Streams");
             DropTable("dbo.Sections");
             DropTable("dbo.Comments");
         }

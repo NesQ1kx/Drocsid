@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Entities.Stream>
+<div class="streams">
+    @if(ViewBag.IsAdmin)
+    {
+        <a href="@Url.Action("AddStream", "Home")" style="text-decoration:none"><h2>Стримы</h2></a>
+    } else
+    {
+        <h2>Стримы</h2>
+    }
+    <ul class="games_menu">
+        <li><a href="#game1" class="active">Dota2</a></li>
+        <li><a href="#game2">CS:GO</a></li>
+        <li><a href="#game3">WoT</a></li>
+        <li><a href="#game4">StarCraft2</a></li>
+    </ul>
+    <div class="game" id="game1">
+        @foreach(var s in Model.Where(p => p.Category == "Dota2"))
+        {
+
+            <div class="streamer">
+                <img src="@s.Photo" alt="" />
+                <a href="@s.Link" class="block" target="_blank">@s.ChanelName</a>
+            </div>
+        }   
+    </div>
+    <div class="game" id="game2">
+        @foreach(var s in Model.Where(st => st.Category == "CS:GO"))
+        {
+            <div class="streamer">
+                <img src="@s.Photo" alt="" />
+                <a href="@s.Link" class="block" target="_blank">@s.ChanelName</a>
+            </div>
+        }
+    </div>
+    <div class="game" id="game3">
+        @foreach(var s in Model.Where(st => st.Category == "WoT"))
+        {
+            <div class="streamer">
+                <img src="@s.Photo" alt="" />
+                <a href="@s.Link" class="block" target="_blank">@s.ChanelName</a>
+            </div>
+        }
+    </div>
+    <div class="game" id="game4" style="display:none">
+        @foreach(var s in Model.Where(st => st.Category == "StarCraft2"))
+        {
+            <div class="streamer">
+                <img src="@s.Photo" alt="" />
+                <a href="@s.Link" class="block" target="_blank">@s.ChanelName</a>
+            </div>
+        }
+    </div>
+</div>

@@ -70,6 +70,21 @@
         });
     });
 
+    document.body.onkeydown = function (event) {
+        var e = event || window.event;
+        var code = e.keyCode || e.which;
+        var activeEl = document.activeElement.id;
+        if (code == 13 && activeEl == "message") {
+            $.connection.hub.start().done(function () {
+                if ($txt.value.length > 0) {
+                    chat.server.send(JSON.stringify({ Type: 0, VideoId: "", currentId: "", nextId: "", Value: $txt.value, Username: username })).done(function () {
+                        $txt.value = '';
+                    });
+                }
+            });
+        }
+    }
+
     chat.client.addMessage = function (message) {
         var el = document.createElement('p');
         var data = JSON.parse(message);

@@ -10,7 +10,6 @@ namespace Dal.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Dal.SampleContext";
         }
 
         protected override void Seed(Dal.SampleContext context)

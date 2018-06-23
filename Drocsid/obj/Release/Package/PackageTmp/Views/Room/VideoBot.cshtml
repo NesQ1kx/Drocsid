@@ -20,7 +20,7 @@
         <input type="button" id="enter" value="Войти в чат">
         <div class="chat_form">
             <input type="text" name="name" value="" id="message"/>
-            <input id="go_reg" type="button" value="Отправить"/>
+            <input id="go_reg" type="button" value="Отправить" autofocus/>
         </div>
     }
     else
@@ -93,6 +93,31 @@
             }
         });
     });
+
+    document.body.onkeydown = function (event) {
+        var e = event || window.event;
+        var code = e.keyCode || e.which;
+        var activeEl = document.activeElement.id;
+        if (code == 13 && activeEl == "message") {
+            $.connection.hub.start().done(function () {
+                if ($txt.value.substring(0, 5) == '!play') {
+                    var videoId = youTubeGetId($txt.value.substring(6, $txt.value.length));
+                    chat.server.send(JSON.stringify({ Type: 1, VideoId: videoId, currentId: "", nextId: "", Value: "", Username: username })).done(function () {
+                        $txt.value = '';
+                    });
+                    console.log(nextId);
+                } else if ($txt.value == '!skip') {
+                    chat.server.send(JSON.stringify({ Type: 2, VideoId: "", currentId: "", nextId: "", Value: "", Username: username })).done(function () {
+                        $txt.value = '';
+                    });
+                } else if ($txt.value.length > 0) {
+                    chat.server.send(JSON.stringify({ Type: 0, VideoId: "", currentId: "", nextId: "", Value: $txt.value, Username: username })).done(function () {
+                        $txt.value = '';
+                    });
+                }
+            });
+        }
+    }
 
     chat.client.addMessage = function (message) {
         var el = document.createElement('p');

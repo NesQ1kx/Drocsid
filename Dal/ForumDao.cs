@@ -146,5 +146,14 @@ namespace Dal
                 db.SaveChanges();
             }
         }
+
+        public void AddSection(Section section)
+        {
+            using (var db = new SampleContext())
+            {
+                db.Sections.Add(section);
+                db.SaveChanges();
+            }
+        }
     }
 }

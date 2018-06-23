@@ -24,8 +24,14 @@ namespace Drocsid.Controllers
             _logic = logic;
             _flogic = flogic;
         }
+
+        [HttpGet]
         public ActionResult Signup()
         {
+            if(User.Identity.IsAuthenticated)
+            {
+                return Redirect("~");
+            }
             return View();
         }
 
@@ -59,8 +65,13 @@ namespace Drocsid.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("~");
+            }
             return View();
         }
 
@@ -110,6 +121,7 @@ namespace Drocsid.Controllers
         public ActionResult Profile(string userName)
         {
             ViewBag.IsAdmin = IsAdmin();
+            ViewBag.IsSuperAdmin = IsSuperAdmin();
             Entities.User user = _logic.GetUserByLogin(userName);
             if(user != null)
             {
@@ -194,7 +206,18 @@ namespace Drocsid.Controllers
         {
             _logic.BanUser(id);
             return RedirectToAction("Profile", "User", new { userName = username });
+        }
 
+        public ActionResult Increase(int id, string username)
+        {
+            _logic.Increase(id);
+            return RedirectToAction("Profile", "User", new { userName = username });
+        }
+
+        public ActionResult Decrease(int id, string username)
+        {
+            _logic.Decrease(id);
+            return RedirectToAction("Profile", "User", new { userName = username });
         }
 
         [NonAction]
@@ -202,7 +225,16 @@ namespace Drocsid.Controllers
         {
             Entities.User user = _logic.GetUserByLogin(User.Identity.Name);
             if (user == null) return false;
-            else if (user.Role == "admin") return true;
+            else if (user.Role == "admin" || user.Role == "superAdmin") return true;
+            else return false;
+        }
+
+        [NonAction] 
+        public bool IsSuperAdmin()
+        {
+            Entities.User user = _logic.GetUserByLogin(User.Identity.Name);
+            if (user == null) return false;
+            else if (user.Role == "superAdmin") return true;
             else return false;
         }
 

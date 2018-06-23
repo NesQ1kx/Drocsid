@@ -23,5 +23,6 @@ namespace DalContracts
         Section GetSection(int id);
         void DeleteTopic(int id);
         void DeleteComment(int id);
+        void AddSection(Section section);
     }
 }

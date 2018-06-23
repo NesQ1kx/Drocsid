@@ -11,7 +11,7 @@
         <div id="info">
             
             <p id="name">@Model.Username </p>
-            @if(Model.Role == "admin")
+            @if(Model.Role == "admin" || Model.Role == "superAdmin")
             {
                 <p id="status">Администраторы</p>
             } else
@@ -39,12 +39,26 @@
         }
         @if(ViewBag.IsAdmin)
         {
-            if(Model.IsBaned)
+            if (Model.Role != "superAdmin")
             {
-            <a href="@Url.Action("UnbanUser", "User" , new { id = Model.Id, username = Model.Username})" id="go_reg" style ="text-decoration: none">Разблокировать</a>
-            } else
+                if(Model.IsBaned)
+                {
+                    <a href="@Url.Action("UnbanUser", "User" , new { id = Model.Id, username = Model.Username})" id="go_reg" style ="text-decoration: none">Разблокировать</a>
+                } else
+                {
+                    <a href="@Url.Action("BanUser", "User" , new { id = Model.Id, username = Model.Username})" id="go_reg" style ="text-decoration: none">Заблокировать</a>
+                }
+            }
+           
+        }
+        @if(ViewBag.IsSuperAdmin)
+        {
+            if (Model.Role == "user")
             {
-            <a href="@Url.Action("BanUser", "User" , new { id = Model.Id, username = Model.Username})" id="go_reg" style ="text-decoration: none">Заблокировать</a>
+            <a href="@Url.Action("Increase", "User", new { id = Model.Id, username = Model.Username})" id="go_reg" style="text-decoration:none;">Повысить</a>
+            } else if(Model.Role == "admin")
+            {
+                <a href="@Url.Action("Decrease", "User", new { id = Model.Id, username = Model.Username})" id="go_reg" style="text-decoration:none;">Понизить</a>
             }
         }
     </div>

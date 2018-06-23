@@ -47,9 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201806131823369_kek.cs" />
-    <Compile Include="Migrations\201806131823369_kek.Designer.cs">
-      <DependentUpon>201806131823369_kek.cs</DependentUpon>
+    <Compile Include="HomeDao.cs" />
+    <Compile Include="Migrations\201806221759455_kek.cs" />
+    <Compile Include="Migrations\201806221759455_kek.Designer.cs">
+      <DependentUpon>201806221759455_kek.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SampleContext.cs" />
@@ -72,8 +73,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806131823369_kek.resx">
-      <DependentUpon>201806131823369_kek.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806221759455_kek.resx">
+      <DependentUpon>201806221759455_kek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

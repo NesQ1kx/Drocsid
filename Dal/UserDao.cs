@@ -139,5 +139,25 @@ namespace Dal
                 db.SaveChanges();
             }
         }
+
+        public void Increase(int id)
+        {
+            using (var db = new SampleContext())
+            {
+                var user = db.Users.Find(id);
+                user.Role = "admin";
+                db.SaveChanges();
+            }
+        }
+
+        public void Decrease(int id)
+        {
+            using (var db = new SampleContext())
+            {
+                var user = db.Users.Find(id);
+                user.Role = "user";
+                db.SaveChanges();
+            }
+        }
     }
 }

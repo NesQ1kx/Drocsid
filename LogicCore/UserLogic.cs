@@ -109,5 +109,15 @@ namespace LogicCore
         {
             _userDao.BanUser(id);
         }
+
+        public void Increase(int id)
+        {
+            _userDao.Increase(id);
+        }
+
+        public void Decrease(int id)
+        {
+            _userDao.Decrease(id);
+        }
     }
 }

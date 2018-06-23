@@ -37,6 +37,8 @@ namespace NinjectConfigurator
             kernel.Bind<IUserDao>().To<UserDao>().InSingletonScope();
             kernel.Bind<IForumDao>().To<ForumDao>().InSingletonScope();
             kernel.Bind<IForumLogic>().To<ForumLogic>().InSingletonScope();
+            kernel.Bind<IHomeDao>().To<HomeDao>().InSingletonScope();
+            kernel.Bind<IHomeLogic>().To<HomeLogic>().InSingletonScope();
         }
     }
 }

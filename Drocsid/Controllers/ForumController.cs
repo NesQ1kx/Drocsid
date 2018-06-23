@@ -26,6 +26,7 @@ namespace Drocsid.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.IsAdmin = IsAdmin();
             return View(_logic.GetSections());
         }
 
@@ -41,6 +42,23 @@ namespace Drocsid.Controllers
             {
                 return new HttpStatusCodeResult(404, "Section Not Found");
             }
+        }
+
+        [HttpGet] 
+        public ActionResult AddSection()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddSection(SectionModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                _logic.AddSection(model.SectionName);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         public ActionResult SectionTopicsShort(int id)
@@ -143,7 +161,7 @@ namespace Drocsid.Controllers
             
             Entities.User user = _ulogic.GetUserByLogin(User.Identity.Name);
             if (user == null) return false;
-            else if (user.Role == "admin") return true;
+            else if (user.Role == "admin" || user.Role == "superAdmin") return true;
             else return false;
         }
     }

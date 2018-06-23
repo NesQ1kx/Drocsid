@@ -1,0 +1,36 @@
+﻿@model Drocsid.Models.StreamModel
+@{
+    ViewBag.Title = "AddStream";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<div class="content">
+    <h2>Добавить стрим</h2>
+    @using (Html.BeginForm("AddStream", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "reg" }))
+    {
+        <p>
+            @Html.LabelFor(m => m.ChanelName)
+            @Html.TextBoxFor(m => m.ChanelName)
+            @Html.ValidationMessageFor(m => m.ChanelName)
+        </p>
+       
+        <p>
+            @Html.LabelFor(m => m.Link)
+            @Html.TextBoxFor(m => m.Link)
+            @Html.ValidationMessageFor(m => m.Link)
+        </p>
+        
+        <p>
+            @Html.LabelFor(m => m.Category)
+            @Html.DropDownListFor(m => m.Category, new SelectList(new[] { "Dota2", "CS:GO", "WoT", "StarCraft2" }))
+            @Html.ValidationMessageFor(m => m.Category)
+        </p>
+        
+        <label for="photo">Изображение</label>
+        <input type="file" name="photo" value="Загрузить" />
+        <p>
+            <input type="submit" name="name" value="Добавить" id="go_reg" />
+        </p>
+    }
+</div>
+

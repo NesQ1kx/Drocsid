@@ -124,5 +124,15 @@ namespace LogicCore
             _forumDao.DeleteComment(id);
         }
 
+        public void AddSection(string sectionName)
+        {
+            Section section = new Section()
+            {
+                SectionName = sectionName
+            };
+
+            _forumDao.AddSection(section);
+        }
+
     }
 }
