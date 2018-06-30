@@ -32,5 +32,10 @@ namespace LogicCore
         {
             return _homeDao.GetStreams();
         }
+
+        public void DeleteStream(int id)
+        {
+            _homeDao.DeleteStream(id);
+        }
     }
 }

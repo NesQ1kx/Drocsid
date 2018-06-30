@@ -27,5 +27,15 @@ namespace Dal
                 return streams = db.Streams.ToList();
             }
         }
+
+        public void DeleteStream(int id)
+        {
+            using (var db = new SampleContext())
+            {
+                Stream stream = db.Streams.Find(id);
+                db.Streams.Remove(stream);
+                db.SaveChanges();
+            }
+        }
     }
 }

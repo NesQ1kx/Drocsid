@@ -11,5 +11,6 @@ namespace Logic
     {
         List<Stream> GetStreams();
         void AddStream(string chanelName, string link, string photo, string category);
+        void DeleteStream(int id);
     }
 }

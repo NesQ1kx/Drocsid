@@ -686,3 +686,11 @@ body {
   left: 10px; 
 }
 
+#stream {
+    color: white;
+}
+
+#stream a {
+    display: inline;
+}
+

@@ -33,6 +33,17 @@ namespace Drocsid.Controllers
             return PartialView("_StreamsPartial", _hlogic.GetStreams());
         }
 
+        public ActionResult EditStreams()
+        {
+            return View(_hlogic.GetStreams());
+        }
+
+        public ActionResult DeleteStream(int id)
+        {
+            _hlogic.DeleteStream(id);
+            return RedirectToAction("EditStreams");
+        }
+
         [HttpGet]
         public ActionResult AddStream()
         {

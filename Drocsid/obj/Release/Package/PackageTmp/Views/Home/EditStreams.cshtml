@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Entities.Stream>
+@{
+    ViewBag.Title = "EditStreams";
+    Layout = "~/Views/MasterView.cshtml";
+}
+
+<div class="content">
+    <h2>Редактирование стримов</h2>
+    @foreach(var s in Model)
+    {
+        <div style="margin-left: 10px; font-family: sans-serif;"><p id="stream" style="color: white; display: inline-block; margin-right: 5px;">@s.ChanelName - @s.Category</p><a href="@Url.Action("DeleteStream", "Home", new { id = s.Id})" id="go_reg" style="text-decoration: none">Удалить</a></div>
+    }
+
+        <a href="@Url.Action("AddStream", "Home")" id="go_reg" style="text-decoration: none; margin: 10px;">Добавить стрим</a>
+</div>

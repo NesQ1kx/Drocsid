@@ -11,5 +11,6 @@ namespace DalContracts
     {
         List<Stream> GetStreams();
         void AddStream(Stream stream);
+        void DeleteStream(int id);
     }
 }

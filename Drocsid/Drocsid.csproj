@@ -182,6 +182,7 @@
     <Content Include="Views\Forum\AddSection.cshtml" />
     <Content Include="Views\Home\_StreamsPartial.cshtml" />
     <Content Include="Views\Home\AddStream.cshtml" />
+    <Content Include="Views\Home\EditStreams.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
